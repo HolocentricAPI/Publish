@@ -268,8 +268,8 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "invalid-property" : {
-            "$ref" : "#/responses/invalid-property"
+          "invalid_property" : {
+            "$ref" : "#/responses/invalid_property"
           },
           "requires_initialization" : {
             "$ref" : "#/responses/requires_initialization"
@@ -330,8 +330,8 @@
           "not_found" : {
             "$ref" : "#/responses/not_found"
           },
-          "invalid-property" : {
-            "$ref" : "#/responses/invalid-property"
+          "invalid_property" : {
+            "$ref" : "#/responses/invalid_property"
           },
           "requires_initialization" : {
             "$ref" : "#/responses/requires_initialization"
@@ -412,8 +412,8 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "invalid-property" : {
-            "$ref" : "#/responses/invalid-property"
+          "invalid_property" : {
+            "$ref" : "#/responses/invalid_property"
           },
           "requires_initialization" : {
             "$ref" : "#/responses/requires_initialization"
@@ -468,8 +468,8 @@
           "not_found" : {
             "$ref" : "#/responses/not_found"
           },
-          "invalid-property" : {
-            "$ref" : "#/responses/invalid-property"
+          "invalid_property" : {
+            "$ref" : "#/responses/invalid_property"
           },
           "requires_initialization" : {
             "$ref" : "#/responses/requires_initialization"
