@@ -16,10 +16,10 @@ paths:
    consumes: "application/xml"
    parameters: 
      name: server_url
-       in: path
-       description: "URL of the Modelpedia server. (e.g. http://modelpedia.com.au)"
-       required: true
-       type: string
+     in: path
+     description: "URL of the Modelpedia server. (e.g. http://modelpedia.com.au)"
+     required: true
+     type: string
      name: grant_type
      in: query
      description: "Use the value 'password' since you will be obtaining an access token using the your password credentials."
