@@ -139,8 +139,8 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
-            "$ref" : "#/responses/401 - unauthorized"
+          "401_unauthorized" : {
+            "$ref" : "#/responses/401_unauthorized"
           }
         }
       }
@@ -188,7 +188,7 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
+          "401_unauthorized" : {
             "$ref" : "#/responses/401_unauthorized"
           }
         }
@@ -274,7 +274,7 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
+          "401_unauthorized" : {
             "$ref" : "#/responses/401_unauthorized"
           },
           "invalid-property" : {
@@ -333,7 +333,7 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
+          "401_unauthorized" : {
             "$ref" : "#/responses/401_unauthorized"
           },
           "invalid_model" : {
@@ -424,7 +424,7 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
+          "401_unauthorized" : {
             "$ref" : "#/responses/401_unauthorized"
           },
           "invalid-property" : {
@@ -477,7 +477,7 @@
           "authorization_denied" : {
             "$ref" : "#/responses/authorization_denied"
           },
-          "401 - unauthorized" : {
+          "401_unauthorized" : {
             "$ref" : "#/responses/401_unauthorized"
           },
           "invalid_model" : {
