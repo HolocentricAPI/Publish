@@ -15,32 +15,27 @@ paths:
    description: "This API request is used to obtain an access token for authorization purposes. \nPrior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests."
    operationId: "obtain-access-token"
    consumes: "application/x-www-form-urlencoded"
-   parameters: 
-    - 
+   parameters:  
    name: server_url
      in: path
      description: "URL of the Modelpedia server."
      required: true
      type: string
-    - 
    name: grant_type
      in: query
      description: "Use the value 'password' since you will be obtaining an access token using the your password credentials."
      required: true
-     type: string
-    - 
+     type: string 
    name: username
      in: query
      description: "The account username for which you want to obtain an access token."
      required: true
      type: string
-    - 
    name: password
      in: query
      description: "The account password for which you want to obtain an access token."
      required: true
      type: string
-    - 
    in: formData
      required: false
      type: file
@@ -62,11 +57,8 @@ paths:
         example: 28799
         description: "Token validity duration in milliseconds."
       required: 
-       - 
    access_token
-       - 
    expires_in
-       - 
    token_type
  "/{server_url}/api/{model_choice}/{model_uuid}/items/schema": 
   get: 
