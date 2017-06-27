@@ -1,6 +1,6 @@
 swagger: "2.0"
 info: 
- version: "3.1.3"
+ version: ""
  title: "SLAM API"
 host: "baseuri.com"
 basePath: ""
@@ -13,14 +13,18 @@ paths:
    summary: "Obtain access token"
    description: "Prior to making any API requests, you need to obtain an access token that will be used for all subsequent API requests."
    operationId: "obtain-access-token"
-   consumes: "application/xml"
+   consumes: 
+    - 
+   "application/xml"
    parameters: 
-     name: server_url
+    - 
+   name: server_url
      in: path
      description: "URL of the Modelpedia server. (e.g. http://modelpedia.com.au)"
      required: true
      type: string
-     name: grant_type
+    - 
+   name: grant_type
      in: query
      description: "Use the value 'password' since you will be obtaining an access token using the your password credentials."
      required: true
