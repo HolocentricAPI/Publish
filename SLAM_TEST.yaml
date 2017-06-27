@@ -13,9 +13,7 @@ paths:
    summary: "Obtain access token"
    description: "Prior to making any API requests, you need to obtain an access token that will be used for all subsequent API requests."
    operationId: "obtain-access-token"
-   consumes: 
-    - 
-   "application/xml"
+   consumes: "application/xml"
    parameters: 
     - 
    name: server_url
