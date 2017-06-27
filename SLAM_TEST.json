@@ -1,9 +1,9 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "version" : "3.1.3",
-    "title" : "SLAM API",
-    "description" : "Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. This document is aimed at helping you work with this API functionality in Modelpedia."
+    "version" : "holo",
+    "title" : "Test Full",
+	"description" : "Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. This document is aimed at helping you work with this API functionality in Modelpedia."
   },
   "host" : "baseuri.com",
   "basePath" : "",
@@ -13,7 +13,7 @@
   "paths" : {
     "/{server_url}/api/token" : {
       "post" : {
-        "summary" : "Obtain access tokens",
+        "summary" : "Obtain access token",
         "description" : "This API request is used to obtain an access token for authorization purposes. \nPrior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.",
         "operationId" : "obtain-access-token",
         "consumes" : [
@@ -23,7 +23,7 @@
           {
             "name" : "server_url",
             "in" : "path",
-            "description" : "URL of the Modelpedia server. (e.g. http://modelpedia.com.au)",
+            "description" : "URL of the Modelpedia server.",
             "required" : true,
             "type" : "string"
           },
@@ -67,10 +67,17 @@
                 "token_type" : {
                   "type" : "string",
                   "example" : "Bearer"
+                },
+                "expires_in" : {
+                  "type" : "integer",
+                  "format" : "int32",
+                  "example" : 28799,
+                  "description" : "Token validity duration in milliseconds."
                 }
               },
               "required" : [
                 "access_token",
+                "expires_in",
                 "token_type"
               ]
             }
@@ -78,710 +85,417 @@
         }
       }
     },
-    "/{server_url}/api/{model_choice}/{model_guid}/items/schema" : {
+    "/{server_url}/api/{model_choice}/{model_uuid}/items/schema" : {
       "get" : {
-        "summary" : "Get item schema using library model uuid",
-        "description" : "This is to query the schema of a library using the model_guid. When using the library UUID, you are required to provide the model choice. (i.e. LatestDraft, LatestProposed otr LatestFinal)",
-        "operationId" : "get-item-details",
+        "summary" : "Get item schema using library model UUID",
+        "description" : "This is to query the schema of a model library using the library UUID. When using the library UUID, you are required to provide the model choice. (i.e. LatestDraft, LatestProposed or LatestFinal)",
+        "operationId" : "get-item-schema_status",
         "parameters" : [
           {
             "name" : "server_url",
             "in" : "path",
-            "description" : "Modelpedia server URL. e.g. http://www.modelpedia.com.au",
+            "description" : "Modelpedia server URL.",
             "required" : true,
             "type" : "string"
           },
           {
             "name" : "model_choice",
             "in" : "path",
-            "description" : "Specifies if you want to retreive the draft, proposed or final version of the library. (e.g., LatestDraft, LatestProposed or LatestFinal)",
+            "description" : "Specifies if you want to retreive the draft, proposed or final version of the library.",
             "required" : true,
             "type" : "string"
           },
           {
-            "name" : "model_guid",
+            "name" : "model_uuid",
             "in" : "path",
-            "description" : "The published model uuid. (i.e. the uuid of the specific library version.)",
+            "description" : "The published library uuid.",
             "required" : true,
             "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
           }
         ],
         "responses" : {
           "200" : {
             "description" : "OK"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
           }
         }
       }
     },
-    "/{server_url}/api/{model_guid}/items/schema" : {
+    "/{server_url}/api/{model_uuid}/items/schema" : {
       "get" : {
-        "summary" : "Get item schema using specific model version",
-        "description" : "This is used to query the items schema when you provide the UUID of the specific published model library.",
+        "summary" : "Get item schema using specific model version UUID",
+        "description" : "This is used to query the items schema when you provide the UUID of the specific version of a published model library.",
         "operationId" : "get-item-schema",
         "parameters" : [
           {
             "name" : "server_url",
             "in" : "path",
-            "description" : "Modelpedia server URL. (e.g., http://www.modelpedia.com.au)",
+            "description" : "Modelpedia server URL.",
             "required" : true,
             "type" : "string"
           },
           {
-            "name" : "model_guid",
+            "name" : "model_uuid",
             "in" : "path",
-            "description" : "The UUID of the published model library.",
+            "description" : "The UUID of the specific version of the model library.",
             "required" : true,
             "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
           }
         ],
         "responses" : {
-          "default" : {
-            "description" : "default response"
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
           }
         }
       }
     },
-    "/{server_url}/api/{model_guid}/items?$filter=isof('{item_type}')" : {
+    "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof('item_type')" : {
       "get" : {
-        "summary" : "List items of a specified type",
+        "summary" : "List items of a specified item type using library model UUID",
         "description" : "This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. \ne.g., filter=isof('Business Rule') will list out all items that are listed under item type 'Business Rule'.",
-        "operationId" : "list-items-of-a-specified-type",
+        "operationId" : "list-items-of-a-specified-item-type-using-library-model-uuid",
+        "produces" : [
+          "application/xml"
+        ],
         "parameters" : [
           {
             "name" : "server_url",
             "in" : "path",
+            "description" : "Modelpedia server URL.",
             "required" : true,
             "type" : "string"
           },
           {
-            "name" : "model_guid",
+            "name" : "model_choice",
+            "in" : "path",
+            "description" : "Specifies if you want to retreive the draft, proposed or final version of the library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/filter"
+          },
+          {
+            "$ref" : "#/parameters/top"
+          },
+          {
+            "$ref" : "#/parameters/skip"
+          },
+          {
+            "$ref" : "#/parameters/count"
+          },
+          {
+            "$ref" : "#/parameters/select"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "uuid" : {
+                  "type" : "string",
+                  "description" : "UUID of the item"
+                }
+              },
+              "required" : [
+                "uuid"
+              ]
+            }
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_choice}/{model_uuid}/items" : {
+      "get" : {
+        "summary" : "Get item details by specifying the item using library model UUID",
+        "description" : "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method.",
+        "operationId" : "get-item-details-by-specifying-the-item-uuid-and-specific-model-version",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_choice",
             "in" : "path",
             "required" : true,
             "type" : "string"
           },
           {
-            "name" : "top",
-            "in" : "query",
-            "required" : false,
-            "type" : "integer"
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
           },
           {
-            "name" : "skip",
+            "name" : "item_uuid",
             "in" : "query",
-            "required" : false,
-            "type" : "integer"
+            "description" : "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs.",
+            "required" : true,
+            "type" : "string"
           },
           {
-            "name" : "count",
-            "in" : "query",
-            "required" : false,
-            "type" : "boolean"
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
           }
         ],
         "responses" : {
-          "default" : {
-            "description" : "default response"
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
           }
         }
       }
-    }
-  },
-  "definitions" : {
-    "Author" : {
-      "type" : "object",
-      "required" : [
-        "author_id",
-        "iconsets_count",
-        "name",
-        "website_url"
-      ],
-      "properties" : {
-        "website_url" : {
-          "type" : "string",
-          "example" : "http://www.everaldo.com/"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Everaldo Coelho"
-        },
-        "author_id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 2.0
-        },
-        "iconsets_count" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 12.0
-        }
-      },
-      "description" : "See [Format Model](model://Format) **bold**"
     },
-    "Category" : {
-      "type" : "object",
-      "required" : [
-        "identifier",
-        "name"
-      ],
-      "properties" : {
-        "identifier" : {
-          "type" : "string",
-          "example" : "halloween"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Halloween"
-        }
-      }
-    },
-    "Format" : {
-      "type" : "object",
-      "required" : [
-        "download_url",
-        "format",
-        "preview_url"
-      ],
-      "properties" : {
-        "preview_url" : {
-          "type" : "string",
-          "example" : "https://cdn1.iconfinder.com/data/icons/streamline-business-finance/60/cell-0-12-30.png"
-        },
-        "download_url" : {
-          "type" : "string",
-          "example" : "/icons/233366/formats/png/30/download"
-        },
-        "format" : {
-          "type" : "string",
-          "example" : "png"
-        }
-      }
-    },
-    "IdAndName" : {
-      "type" : "object",
-      "required" : [
-        "identifier",
-        "name"
-      ],
-      "properties" : {
-        "identifier" : {
-          "type" : "string",
-          "example" : "outline"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Outline"
-        }
-      },
-      "description" : "Name - Description pair"
-    },
-    "License" : {
-      "type" : "object",
-      "required" : [
-        "license_id",
-        "name",
-        "scope",
-        "url"
-      ],
-      "properties" : {
-        "license_id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 71.0
-        },
-        "scope" : {
-          "type" : "string",
-          "example" : "free"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Basic license"
-        },
-        "url" : {
-          "type" : "string",
-          "example" : "https://www.iconfinder.com/licenses/basic"
-        }
-      }
-    },
-    "Price" : {
-      "type" : "object",
-      "required" : [
-        "currency",
-        "license",
-        "price"
-      ],
-      "properties" : {
-        "license" : {
-          "$ref" : "#/definitions/License"
-        },
-        "price" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 1.0
-        },
-        "currency" : {
-          "type" : "string",
-          "example" : "USD"
-        }
-      }
-    },
-    "Icon" : {
-      "type" : "object",
-      "required" : [
-        "categories",
-        "containers",
-        "icon_id",
-        "is_premium",
-        "prices",
-        "primiti",
-        "published_at",
-        "raster_sizes",
-        "styles",
-        "tags",
-        "temp",
-        "type",
-        "vector_sizes"
-      ],
-      "properties" : {
-        "temp" : {
-          "description" : "test enums",
-          "$ref" : "#/definitions/Test enum"
-        },
-        "primiti" : {
-          "type" : "object"
-        },
-        "vector_sizes" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "formats" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/definitions/IdAndName"
-                }
-              },
-              "size" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 60.0
-              },
-              "size_height" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 60.0
-              },
-              "size_width" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 60.0
-              },
-              "target_sizes" : {
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "0" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 30.0
-                    },
-                    "1" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 60.0
-                    },
-                    "2" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 120.0
-                    },
-                    "3" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 180.0
-                    },
-                    "4" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 240.0
-                    },
-                    "5" : {
-                      "type" : "number",
-                      "format" : "double",
-                      "example" : 480.0
-                    }
-                  },
-                  "required" : [
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5"
-                  ]
-                }
-              }
-            },
-            "required" : [
-              "formats",
-              "size",
-              "size_height",
-              "size_width",
-              "target_sizes"
-            ]
-          }
-        },
-        "icon_id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 233366.0
-        },
-        "type" : {
-          "type" : "string",
-          "example" : "vector"
-        },
-        "tags" : {
-          "type" : "array",
-          "example" : "interest",
-          "items" : {
+    "/{server_url}/api/{model_uuid}/items?$filter=isof('item_type')" : {
+      "get" : {
+        "summary" : "List items of a specified item type",
+        "description" : "This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. \ne.g., filter=isof('Business Rule') will list out all items that are listed under item type 'Business Rule'.",
+        "operationId" : "list-items-of-a-specified-type",
+        "produces" : [
+          "application/xml"
+        ],
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
             "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/filter"
+          },
+          {
+            "$ref" : "#/parameters/top"
+          },
+          {
+            "$ref" : "#/parameters/skip"
+          },
+          {
+            "$ref" : "#/parameters/count"
+          },
+          {
+            "$ref" : "#/parameters/select"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
           }
-        },
-        "raster_sizes" : {
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "formats" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/definitions/Format"
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "uuid" : {
+                  "type" : "string",
+                  "description" : "UUID of the item"
                 }
               },
-              "size" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 30.0
-              },
-              "size_height" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 30.0
-              },
-              "size_width" : {
-                "type" : "number",
-                "format" : "double",
-                "example" : 30.0
-              }
-            },
-            "required" : [
-              "formats",
-              "size",
-              "size_height",
-              "size_width"
-            ]
-          }
-        },
-        "is_premium" : {
-          "type" : "boolean",
-          "example" : true
-        },
-        "styles" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/IdAndName"
-          }
-        },
-        "containers" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Format"
-          }
-        },
-        "categories" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/IdAndName"
-          }
-        },
-        "published_at" : {
-          "type" : "string",
-          "example" : "2014-01-24T12:00:14.811Z"
-        },
-        "prices" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Price"
+              "required" : [
+                "uuid"
+              ]
+            }
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
           }
         }
       }
     },
-    "Iconset" : {
-      "type" : "object",
-      "required" : [
-        "author",
-        "categories",
-        "icons_count",
-        "iconset_id",
-        "identifier",
-        "is_premium",
-        "name",
-        "prices",
-        "published_at",
-        "styles",
-        "type"
-      ],
-      "properties" : {
-        "identifier" : {
-          "type" : "string",
-          "example" : "coloricons-5"
-        },
-        "is_premium" : {
-          "type" : "boolean",
-          "example" : true
-        },
-        "author" : {
-          "$ref" : "#/definitions/User"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Coloricons 5"
-        },
-        "iconset_id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 5411.0
-        },
-        "styles" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/IdAndName"
+    "/{server_url}/api/{model_uuid}/items" : {
+      "get" : {
+        "summary" : "Get item details by specifying the item UUID",
+        "description" : "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method.",
+        "operationId" : "list-item-of-a-specified-uuid",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "item_uuid",
+            "in" : "query",
+            "description" : "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
           }
-        },
-        "icons_count" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 50.0
-        },
-        "categories" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/IdAndName"
+        ],
+        "responses" : {
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
           }
-        },
-        "published_at" : {
-          "type" : "string",
-          "example" : "2014-05-29T11:38:43.852Z"
-        },
-        "prices" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Price"
-          }
-        },
-        "type" : {
-          "type" : "string",
-          "example" : "vector"
         }
       }
-    },
-    "User" : {
-      "type" : "object",
-      "required" : [
-        "company",
-        "iconsets_count",
-        "is_designer",
-        "location",
-        "name",
-        "social_dribbble",
-        "social_twitter",
-        "user_id",
-        "username",
-        "website_url"
-      ],
-      "properties" : {
-        "is_designer" : {
-          "type" : "boolean",
-          "example" : true
-        },
-        "social_twitter" : {
-          "type" : "string",
-          "example" : "webalys"
-        },
-        "website_url" : {
-          "type" : "string",
-          "example" : "http://www.webalys.com/"
-        },
-        "user_id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 40097.0
-        },
-        "social_dribbble" : {
-          "type" : "string",
-          "example" : "webalys"
-        },
-        "name" : {
-          "type" : "string",
-          "example" : "Vincent Le Moign"
-        },
-        "company" : {
-          "type" : "string",
-          "example" : "Webalys"
-        },
-        "location" : {
-          "type" : "string",
-          "example" : "Hong Kong"
-        },
-        "iconsets_count" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 74.0
-        },
-        "username" : {
-          "type" : "string",
-          "example" : "webalys"
-        }
-      },
-      "description" : "[See docs](doc://Data transmission sdfwef)"
-    },
-    "SearchforiconsRequest" : {
-      "type" : "object",
-      "required" : [
-        "contributors",
-        "coordinates",
-        "created_at",
-        "entities",
-        "favorited",
-        "geo",
-        "id",
-        "id_str",
-        "in_reply_to_screen_name",
-        "in_reply_to_status_id",
-        "in_reply_to_status_id_str",
-        "in_reply_to_user_id",
-        "in_reply_to_user_id_str",
-        "place",
-        "possibly_sensitive",
-        "retweet_count",
-        "retweeted",
-        "source",
-        "text",
-        "truncated",
-        "user"
-      ],
-      "properties" : {
-        "in_reply_to_status_id_str" : {
-          "type" : "object"
-        },
-        "in_reply_to_status_id" : {
-          "type" : "object"
-        },
-        "possibly_sensitive" : {
-          "type" : "boolean",
-          "example" : false
-        },
-        "coordinates" : {
-          "type" : "object"
-        },
-        "truncated" : {
-          "type" : "boolean",
-          "example" : false
-        },
-        "created_at" : {
-          "type" : "string",
-          "example" : "Wed Aug 29 17:12:58 +0000 2012"
-        },
-        "in_reply_to_user_id_str" : {
-          "type" : "object"
-        },
-        "source" : {
-          "type" : "string",
-          "example" : "<a href=\"http://sites.google.com/site/yorufukurou/\" rel=\"nofollow\">YoruFukurou</a>"
-        },
-        "retweet_count" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 121.0
-        },
-        "retweeted" : {
-          "type" : "boolean",
-          "example" : false
-        },
-        "geo" : {
-          "type" : "object"
-        },
-        "in_reply_to_screen_name" : {
-          "type" : "object"
-        },
-        "entities" : {
-          "type" : "object"
-        },
-        "id_str" : {
-          "type" : "string",
-          "example" : "240859602684612608"
-        },
-        "in_reply_to_user_id" : {
-          "type" : "object"
-        },
-        "contributors" : {
-          "type" : "object"
-        },
-        "text" : {
-          "type" : "string",
-          "example" : "Introducing the Twitter Certified Products Program: https://t.co/MjJ8xAnT"
-        },
-        "id" : {
-          "type" : "number",
-          "format" : "double",
-          "example" : 2.40859602684612608E17
-        },
-        "place" : {
-          "type" : "object"
-        },
-        "user" : {
-          "type" : "object"
-        },
-        "favorited" : {
-          "type" : "boolean",
-          "example" : false
-        }
-      },
-      "description" : "ewf"
-    },
-    "Error model" : {
-      "type" : "object",
-      "required" : [
-        "code",
-        "message"
-      ],
-      "properties" : {
-        "code" : {
-          "type" : "string",
-          "example" : "not_found"
-        },
-        "message" : {
-          "type" : "string",
-          "example" : "Not found"
-        }
-      }
-    },
-    "Test enum" : {
-      "type" : "string",
-      "description" : "ewfwef",
-      "enum" : [
-        "wefwef"
-      ]
     }
   },
   "parameters" : {
-    "$filter" : {
-      "name" : "$filter",
-      "in" : "query",
-      "description" : "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking.",
-      "required" : false,
-      "type" : "string"
-    },
     "$top" : {
       "name" : "$top",
       "in" : "query",
@@ -799,69 +513,62 @@
     "$count" : {
       "name" : "$count",
       "in" : "query",
-      "description" : "This is a paging option, to limit the amount of the data returned.",
+      "description" : "This option is used when you want to retreive a count of the number of items that are available for a specified item type. The count value will be provided within the header of the API response.",
       "required" : false,
       "type" : "boolean",
       "default" : true
+    },
+    "$filter" : {
+      "name" : "$filter",
+      "in" : "query",
+      "description" : "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking.",
+      "required" : false,
+      "type" : "string"
+    },
+    "$select" : {
+      "name" : "$select",
+      "in" : "query",
+      "description" : "This parameter can be used to rereive specific properties of an item type.",
+      "required" : false,
+      "type" : "string"
+    },
+    "content-type" : {
+      "name" : "content-type",
+      "in" : "header",
+      "required" : true,
+      "type" : "string"
+    },
+    "Authorization" : {
+      "name" : "Authorization",
+      "in" : "header",
+      "required" : true,
+      "type" : "string"
     }
   },
   "responses" : {
-    "bad_request" : {
-      "description" : "The request was malformed.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      },
-      "examples" : {
-        "Example 1" : "{\n    \"code\": \"bad_request\",\n    \"message\": \"The request was malformed.\"\n}"
-      }
+    "400 - Invalid Property" : {
+      "description" : "The specified property names are not valid.\n\nThis error response is returned due any one of the following reasons:\n- Invalid property name is entered with the `$select` parameter.\n- Invalid item type name is provided with the `$filter` parameter."
     },
-    "invalid_<parameter>" : {
-      "description" : "The request was malformed. The query parameter \n`parameter` contains an invalid value.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "400 - Unauthorized" : {
+      "description" : "Authorization has been denied for this request. User host address (IP) mismatch.\n\nThis error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address."
     },
-    "bad_credentials" : {
-      "description" : "Invalid credentials were used to authenticate the request.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "401 - Authorization denied" : {
+      "description" : "Authorization has been denied for this request. \n\nThis error response is returned be due to any one of the following reasons:\n\n - Either the 'Repository Administrator' role or the 'API Client (Full Read)' role has not been assigned to the user invoking the API.\n - The access token has expired (i.e. 8 hours have exceeded since the token was generated.)\n - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.\n - User is attempting to access a library that he/she does not have access.\n - Access token was generated for one server and now being used for accessing a model library on another server."
     },
-    "permission_denied" : {
-      "description" : "Permission to the requested resource was denied. This often means that a request should have been authenticated but wasn't. dispatched to clean up the mess immediately!",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "401 - Unauthorized" : {
+      "description" : "Unauthorized: Access us denied due to invalid credentials.\n\nThis error response is returned due to any one of the following reasons:\n- No access token provided in the header of the API request\n- The access token provided in the API request is incorrect."
     },
-    "insufficient_permissions" : {
-      "description" : "The authentication used does not have the required permissions to access the requested resource. Make sure the authentication was performed with the necessary scope.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "404 - Invalid Model" : {
+      "description" : "The requested model is invalid.\n\nThis error response is returned due to any one of the following reasons:\n\n - The model library is not published.\n - Model choice is not provided along with the model library UUID when invoking an API request for a published model.\n - The model library or the specific version UUID provided is incorrect.\n - The library being queried has been publishes with RMU (Revision Mark Up) enabled."
     },
-    "not_purchased" : {
-      "description" : "The premium resource you're trying to access has not been purchased by the authenticated user.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "404 - Requires Initialization" : {
+      "description" : "The requested model requires initialization.\n\nThis error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
     },
-    "not_found" : {
-      "description" : "The requested resource does not exist or is not publicly available.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "404 - Not found" : {
+      "description" : "Not found.\n\nThis error response is returned when you make an API request to retreive the schema or items of a published library but you have a typo in your API URL."
     },
-    "rate_limit_exceeded" : {
-      "description" : "API request rate limit exceeded. See `rate limiting`.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
-    },
-    "server_error" : {
-      "description" : "An internal server error occured. This shouldn't happen, and robots will be dispatched to deal with it immediately.",
-      "schema" : {
-        "$ref" : "#/definitions/Error model"
-      }
+    "500 - Server Error" : {
+      "description" : "An internal server error occured. \n\nThis error response is returned due to any one of the following reasons:\n - The API license has not been uploaded to the server.\n - The API server license has expired.\n - SSL certificate has not been installed for the server."
     }
   }
 }
