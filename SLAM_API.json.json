@@ -1,0 +1,573 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "holo",
+    "title" : "Test Full"
+  },
+  "host" : "baseuri.com",
+  "basePath" : "",
+  "schemes" : [
+    "http"
+  ],
+  "paths" : {
+    "/{server_url}/api/token" : {
+      "post" : {
+        "summary" : "Obtain access token",
+        "description" : "This API request is used to obtain an access token for authorization purposes. \nPrior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.",
+        "operationId" : "obtain-access-token",
+        "consumes" : [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "URL of the Modelpedia server.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "grant_type",
+            "in" : "query",
+            "description" : "Use the value 'password' since you will be obtaining an access token using the your password credentials.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "username",
+            "in" : "query",
+            "description" : "The account username for which you want to obtain an access token.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "password",
+            "in" : "query",
+            "description" : "The account password for which you want to obtain an access token.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "in" : "formData",
+            "required" : false,
+            "type" : "file"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "Upon successful submission of the API request, an XML response will be returned with the access token, token type issued and expiry time in milliseconds.",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "access_token" : {
+                  "type" : "string",
+                  "example" : "mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS"
+                },
+                "token_type" : {
+                  "type" : "string",
+                  "example" : "Bearer"
+                },
+                "expires_in" : {
+                  "type" : "integer",
+                  "format" : "int32",
+                  "example" : 28799,
+                  "description" : "Token validity duration in milliseconds."
+                }
+              },
+              "required" : [
+                "access_token",
+                "expires_in",
+                "token_type"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_choice}/{model_uuid}/items/schema" : {
+      "get" : {
+        "summary" : "Get item schema using library model UUID",
+        "description" : "This is to query the schema of a model library using the library UUID. When using the library UUID, you are required to provide the model choice. (i.e. LatestDraft, LatestProposed or LatestFinal)",
+        "operationId" : "get-item-schema_status",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_choice",
+            "in" : "path",
+            "description" : "Specifies if you want to retreive the draft, proposed or final version of the library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The published library uuid.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_uuid}/items/schema" : {
+      "get" : {
+        "summary" : "Get item schema using specific model version UUID",
+        "description" : "This is used to query the items schema when you provide the UUID of the specific version of a published model library.",
+        "operationId" : "get-item-schema",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof('item_type')" : {
+      "get" : {
+        "summary" : "List items of a specified item type using library model UUID",
+        "description" : "This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. \ne.g., filter=isof('Business Rule') will list out all items that are listed under item type 'Business Rule'.",
+        "operationId" : "list-items-of-a-specified-item-type-using-library-model-uuid",
+        "produces" : [
+          "application/xml"
+        ],
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_choice",
+            "in" : "path",
+            "description" : "Specifies if you want to retreive the draft, proposed or final version of the library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/filter"
+          },
+          {
+            "$ref" : "#/parameters/top"
+          },
+          {
+            "$ref" : "#/parameters/skip"
+          },
+          {
+            "$ref" : "#/parameters/count"
+          },
+          {
+            "$ref" : "#/parameters/select"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "uuid" : {
+                  "type" : "string",
+                  "description" : "UUID of the item"
+                }
+              },
+              "required" : [
+                "uuid"
+              ]
+            }
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_choice}/{model_uuid}/items" : {
+      "get" : {
+        "summary" : "Get item details by specifying the item using library model UUID",
+        "description" : "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method.",
+        "operationId" : "get-item-details-by-specifying-the-item-uuid-and-specific-model-version",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_choice",
+            "in" : "path",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "item_uuid",
+            "in" : "query",
+            "description" : "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_uuid}/items?$filter=isof('item_type')" : {
+      "get" : {
+        "summary" : "List items of a specified item type",
+        "description" : "This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. \ne.g., filter=isof('Business Rule') will list out all items that are listed under item type 'Business Rule'.",
+        "operationId" : "list-items-of-a-specified-type",
+        "produces" : [
+          "application/xml"
+        ],
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/filter"
+          },
+          {
+            "$ref" : "#/parameters/top"
+          },
+          {
+            "$ref" : "#/parameters/skip"
+          },
+          {
+            "$ref" : "#/parameters/count"
+          },
+          {
+            "$ref" : "#/parameters/select"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "uuid" : {
+                  "type" : "string",
+                  "description" : "UUID of the item"
+                }
+              },
+              "required" : [
+                "uuid"
+              ]
+            }
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          }
+        }
+      }
+    },
+    "/{server_url}/api/{model_uuid}/items" : {
+      "get" : {
+        "summary" : "Get item details by specifying the item UUID",
+        "description" : "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method.",
+        "operationId" : "list-item-of-a-specified-uuid",
+        "parameters" : [
+          {
+            "name" : "server_url",
+            "in" : "path",
+            "description" : "Modelpedia server URL.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "model_uuid",
+            "in" : "path",
+            "description" : "The UUID of the specific version of the model library.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name" : "item_uuid",
+            "in" : "query",
+            "description" : "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs.",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "$ref" : "#/parameters/Authorization"
+          },
+          {
+            "$ref" : "#/parameters/content-type"
+          }
+        ],
+        "responses" : {
+          "unauthorized" : {
+            "$ref" : "#/responses/unauthorized"
+          },
+          "authorization_denied" : {
+            "$ref" : "#/responses/authorization_denied"
+          },
+          "401 - unauthorized" : {
+            "$ref" : "#/responses/401 - unauthorized"
+          },
+          "invalid_model" : {
+            "$ref" : "#/responses/invalid_model"
+          },
+          "not_found" : {
+            "$ref" : "#/responses/not_found"
+          },
+          "invalid-property" : {
+            "$ref" : "#/responses/invalid-property"
+          },
+          "requires_initialization" : {
+            "$ref" : "#/responses/requires_initialization"
+          }
+        }
+      }
+    }
+  },
+  "parameters" : {
+    "$top" : {
+      "name" : "$top",
+      "in" : "query",
+      "description" : "This is a paging option to return the specified number of items from the top of the list. \ne.g. $top=50 will return the first 50 items in the list.",
+      "required" : false,
+      "type" : "integer"
+    },
+    "$skip" : {
+      "name" : "$skip",
+      "in" : "query",
+      "description" : "This is a paging option to skip the specified number of items in the list. e.g. $skip=50 will skip the first 50 items in the list and return results from the 51st item onwards.",
+      "required" : false,
+      "type" : "integer"
+    },
+    "$count" : {
+      "name" : "$count",
+      "in" : "query",
+      "description" : "This option is used when you want to retreive a count of the number of items that are available for a specified item type. The count value will be provided within the header of the API response.",
+      "required" : false,
+      "type" : "boolean",
+      "default" : true
+    },
+    "$filter" : {
+      "name" : "$filter",
+      "in" : "query",
+      "description" : "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking.",
+      "required" : false,
+      "type" : "string"
+    },
+    "$select" : {
+      "name" : "$select",
+      "in" : "query",
+      "description" : "This parameter can be used to rereive specific properties of an item type.",
+      "required" : false,
+      "type" : "string"
+    },
+    "content-type" : {
+      "name" : "content-type",
+      "in" : "header",
+      "required" : true,
+      "type" : "string"
+    },
+    "Authorization" : {
+      "name" : "Authorization",
+      "in" : "header",
+      "required" : true,
+      "type" : "string"
+    }
+  },
+  "responses" : {
+    "400 - Invalid Property" : {
+      "description" : "The specified property names are not valid.\n\nThis error response is returned due any one of the following reasons:\n- Invalid property name is entered with the `$select` parameter.\n- Invalid item type name is provided with the `$filter` parameter."
+    },
+    "400 - Unauthorized" : {
+      "description" : "Authorization has been denied for this request. User host address (IP) mismatch.\n\nThis error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address."
+    },
+    "401 - Authorization denied" : {
+      "description" : "Authorization has been denied for this request. \n\nThis error response is returned be due to any one of the following reasons:\n\n - Either the 'Repository Administrator' role or the 'API Client (Full Read)' role has not been assigned to the user invoking the API.\n - The access token has expired (i.e. 8 hours have exceeded since the token was generated.)\n - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.\n - User is attempting to access a library that he/she does not have access.\n - Access token was generated for one server and now being used for accessing a model library on another server."
+    },
+    "401 - Unauthorized" : {
+      "description" : "Unauthorized: Access us denied due to invalid credentials.\n\nThis error response is returned due to any one of the following reasons:\n- No access token provided in the header of the API request\n- The access token provided in the API request is incorrect."
+    },
+    "404 - Invalid Model" : {
+      "description" : "The requested model is invalid.\n\nThis error response is returned due to any one of the following reasons:\n\n - The model library is not published.\n - Model choice is not provided along with the model library UUID when invoking an API request for a published model.\n - The model library or the specific version UUID provided is incorrect.\n - The library being queried has been publishes with RMU (Revision Mark Up) enabled."
+    },
+    "404 - Requires Initialization" : {
+      "description" : "The requested model requires initialization.\n\nThis error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
+    },
+    "404 - Not found" : {
+      "description" : "Not found.\n\nThis error response is returned when you make an API request to retreive the schema or items of a published library but you have a typo in your API URL."
+    },
+    "500 - Server Error" : {
+      "description" : "An internal server error occured. \n\nThis error response is returned due to any one of the following reasons:\n - The API license has not been uploaded to the server.\n - The API server license has expired.\n - SSL certificate has not been installed for the server."
+    }
+  }
+}
