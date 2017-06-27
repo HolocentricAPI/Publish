@@ -13,7 +13,7 @@
   "paths" : {
     "/{server_url}/api/token" : {
       "post" : {
-        "summary" : "Obtain access token",
+        "summary" : "Obtain access tokens",
         "description" : "Prior to making any API requests, you need to obtain an access token that will be used for all subsequent API requests.",
         "operationId" : "obtain-access-token",
         "consumes" : [
