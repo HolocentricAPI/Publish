@@ -2,13 +2,30 @@
 basePath: ""
 host: baseuri.com
 info: 
+  title: "SLAM API"
+  version: 3.1.3
   description: |
     # Overview
     Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. 
     
-    This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. This document is aimed at helping you work with this API functionality in Modelpedia."
-  title: "SLAM API"
-  version: 3.1.3
+    This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. 
+    
+    API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. 
+    
+    This document is aimed at helping you work with this API functionality in Modelpedia.
+    
+    # Prerequisites
+    
+    The API license key needs to be uploaded to the server.
+    The SSL certificate needs to be installed for the API.
+    The user making the API requests needs to be assigned the System Authority Role 'Repository Administrator' and the role 'API Client (Full Read)'.
+
+    # License
+    
+    A separate API license key is required to be installed in Modelpedia before a published library can be accessed via the exposed API.
+    
+    API callers are required to be authorised Modelpedia users and therefore follow standard subscription licensing model.
+    
 parameters: 
   $count: 
     default: true
