@@ -26,6 +26,39 @@ info:
     
     API callers are required to be authorised Modelpedia users and therefore follow standard subscription licensing model.
     
+# The tags on paths define the menu sections in the ReDoc documentation, so
+# the usage of tags must make sense for that:
+# - They should be singular, not plural.
+# - There should not be too many tags, or the menu becomes unwieldly. For
+#   example, it is preferable to add a path to the "System" tag instead of
+#   creating a tag with a single path in it.
+# - The order of tags in this list defines the order in the menu.
+tags:
+  # Primary objects
+  - name: "Authentication"
+    x-displayName: "Authentication"
+    description: |
+      Holocentric BMS uses OAuth for the service authentication. This authentication mechanism requires an initial call to authenticate the API user based on the user name and password provided, and will then return an access token.
+      
+      The token that is received can then be used for subsequent API requests.
+      
+      Please note the following:
+
+      The access token has a default expiry time of 8 hours.
+      Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
+      Tokens must not be shared; only the requesting IP address can use the token provided.
+  - name: "Schema"
+    x-displayName: "Schema"
+    description: |
+      These API requests are used to retreive the schema of a queried library. It list out the item types available in the library along with the XML schema for those item types.
+      
+      The response received will vary based on the model configuration done in Holocentric Modeler.
+  - name: "Items"
+    x-displayName: "Items"
+    description: |
+      This API request is used to retreive the items and associated relationships of a specified item type in the queried library.
+
+      The response received will vary based on the model configuration done in Holocentric Modeler.    
 parameters: 
   $count: 
     default: true
@@ -132,6 +165,7 @@ paths:
               - token_type
             type: object
       summary: "Obtain access token"
+      tags: ["Authentication"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
   : 
     get: 
@@ -182,6 +216,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item using library model UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items/schema"
   : 
     get: 
@@ -227,6 +262,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
+      tags: ["Schema"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
@@ -297,6 +333,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type using library model UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_uuid}/items"
   : 
     get: 
@@ -342,6 +379,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_uuid}/items/schema"
   : 
     get: 
@@ -379,6 +417,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using specific model version UUID"
+      tags: ["Schema"]
   ? "/{server_url}/api/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
@@ -443,6 +482,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type"
+      tags: ["Items"]
 responses: 
   401: 
     description: |-
