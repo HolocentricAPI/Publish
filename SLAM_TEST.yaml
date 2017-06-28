@@ -27,8 +27,8 @@ info:
   version: 3.1.3
   tags:
   # Primary objects
-  - name: Authentication
-    x-displayName: Authentication
+  - name: "Authentication"
+    x-displayName: "Authentication"
     description: |
         Holocentric BMS uses OAuth for the service authentication. This authentication mechanism requires an initial call to authenticate the API user based on the user name and password provided, and will then return an access token.
         
@@ -42,15 +42,15 @@ info:
         
         - Tokens must not be shared; only the requesting IP address can use the token provided.
     
-  - name: Schema
-    x-displayName: Schema
+  - name: "Schema"
+    x-displayName: "Schema"
     description: |
         These API requests are used to retreive the schema of a queried library. It list out the item types available in the library along with the XML schema for those item types.
         
         The response received will vary based on the model configuration done in Holocentric Modeler.
     
-  - name: Items
-    x-displayName: Items 
+  - name: "Items"
+    x-displayName: "Items" 
     description: | 
         This API request is used to retreive the items and associated relationships of a specified item type in the queried library. The response received will vary based on the model configuration done in Holocentric Modeler.    \n"
     
