@@ -319,7 +319,8 @@ paths:
               - uuid
            type: object
         "401 - Unauthorized": 
-            $ref: "#/responses/401"
+            description:
+              $ref: "#/responses/401"
         "Authorization Denied": 
             $ref: "#/responses/authorization_denied"
         "400 - Invalid Property": 
