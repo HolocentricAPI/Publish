@@ -308,8 +308,8 @@ paths:
       produces: 
         - application/xml
       responses: 
-        "200": 
-           description: OK
+        ?"200": 
+           description: "OK"
         401: 
            description:
               $ref: "#/responses/401"
