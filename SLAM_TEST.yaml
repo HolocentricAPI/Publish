@@ -26,15 +26,7 @@ info:
     
     API callers are required to be authorised Modelpedia users and therefore follow standard subscription licensing model.
     
-# The tags on paths define the menu sections in the ReDoc documentation, so
-# the usage of tags must make sense for that:
-# - They should be singular, not plural.
-# - There should not be too many tags, or the menu becomes unwieldly. For
-#   example, it is preferable to add a path to the "System" tag instead of
-#   creating a tag with a single path in it.
-# - The order of tags in this list defines the order in the menu.
 tags:
-  # Primary objects
   - name: "Authentication"
     x-displayName: "Authentication"
     description: |
