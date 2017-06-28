@@ -233,15 +233,15 @@ paths:
           required: true
           type: string
         - 
-          $ref: "#/parameters/filter"
+          $ref: "#/parameters/$filter"
         - 
-          $ref: "#/parameters/top"
+          $ref: "#/parameters/$top"
         - 
-          $ref: "#/parameters/skip"
+          $ref: "#/parameters/$skip"
         - 
-          $ref: "#/parameters/count"
+          $ref: "#/parameters/$count"
         - 
-          $ref: "#/parameters/select"
+          $ref: "#/parameters/$select"
         - 
           $ref: "#/parameters/Authorization"
         - 
@@ -379,15 +379,15 @@ paths:
           required: true
           type: string
         - 
-          $ref: "#/parameters/filter"
+          $ref: "#/parameters/$filter"
         - 
-          $ref: "#/parameters/top"
+          $ref: "#/parameters/$top"
         - 
-          $ref: "#/parameters/skip"
+          $ref: "#/parameters/$skip"
         - 
-          $ref: "#/parameters/count"
+          $ref: "#/parameters/$count"
         - 
-          $ref: "#/parameters/select"
+          $ref: "#/parameters/$select"
         - 
           $ref: "#/parameters/Authorization"
         - 
