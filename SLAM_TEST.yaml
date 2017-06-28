@@ -43,7 +43,7 @@ parameters:
     name: content-type
     required: true
     type: string
-  filter: 
+  $filter: 
     description: "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking."
     in: query
     name: $filter
@@ -237,11 +237,11 @@ paths:
         - 
           $ref: "#/parameters/$top"
         - 
-          $ref: "#/parameters/skip"
+          $ref: "#/parameters/$skip"
         - 
-          $ref: "#/parameters/count"
+          $ref: "#/parameters/$count"
         - 
-          $ref: "#/parameters/select"
+          $ref: "#/parameters/$select"
         - 
           $ref: "#/parameters/Authorization"
         - 
@@ -379,15 +379,15 @@ paths:
           required: true
           type: string
         - 
-          $ref: "#/parameters/filter"
+          $ref: "#/parameters/$filter"
         - 
           $ref: "#/parameters/$top"
         - 
-          $ref: "#/parameters/skip"
+          $ref: "#/parameters/$skip"
         - 
-          $ref: "#/parameters/count"
+          $ref: "#/parameters/$count"
         - 
-          $ref: "#/parameters/select"
+          $ref: "#/parameters/$select"
         - 
           $ref: "#/parameters/Authorization"
         - 
