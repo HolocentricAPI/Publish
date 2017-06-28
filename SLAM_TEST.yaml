@@ -43,7 +43,7 @@ parameters:
     name: content-type
     required: true
     type: string
-  filter: 
+  $filter: 
     description: "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking."
     in: query
     name: $filter
