@@ -489,8 +489,9 @@ responses:
     name: "401 - Unauthorized"
   501: 
     description: |-
-        Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
-        
+        Authorization has been denied for this request. 
+		
+		This error response is returned be due to any one of the following reasons:
          - Either the 'Repository Administrator' role or the 'API Client (Full Read)' role has not been assigned to the user invoking the API. The access token has expired (i.e. 8 hours have exceeded since the token was generated.)
          - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.
          - User is attempting to access a library that he/she does not have access.
