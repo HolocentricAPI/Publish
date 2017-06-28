@@ -214,8 +214,8 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
-      tags: ["Schema"]
-   ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
+     tags: ["Schema"]
+  ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
    : 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
@@ -264,7 +264,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item using library model UUID"
-      tags: ["Items"]
+      tags: ["Items"]    
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
