@@ -14,9 +14,9 @@ info:
       
       # Prerequisites
       
-      The API license key needs to be uploaded to the server.
-      The SSL certificate needs to be installed for the API.
-      The user making the API requests needs to be assigned the System Authority Role 'Repository Administrator' and the role 'API Client (Full Read)'.
+      - The API license key needs to be uploaded to the server.
+      - The SSL certificate needs to be installed for the API.
+      - The user making the API requests needs to be assigned the System Authority Role 'Repository Administrator' and the role 'API Client (Full Read)'.
       
       # License
       
@@ -159,6 +159,7 @@ paths:
               - token_type
             type: object
       summary: "Obtain access token"
+      tags: ["Authentication"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
   : 
     get: 
@@ -209,6 +210,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item using library model UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items/schema"
   : 
     get: 
@@ -254,6 +256,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
+      tags: ["Schema"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
@@ -324,6 +327,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type using library model UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_uuid}/items"
   : 
     get: 
@@ -369,6 +373,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_uuid}/items/schema"
   : 
     get: 
@@ -406,6 +411,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using specific model version UUID"
+      tags: ["Schema"]
   ? "/{server_url}/api/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
@@ -470,6 +476,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type"
+      tags: ["Items"]
 responses: 
   401: 
     description: |-
