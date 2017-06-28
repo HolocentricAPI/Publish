@@ -99,8 +99,7 @@ parameters:
     required: false
     type: string
 paths: 
-  ? "/{server_url}/api/token"
-  : 
+  /{server_url}/api/token: 
     post: 
       consumes: 
         - application/x-www-form-urlencoded
@@ -161,8 +160,7 @@ paths:
             type: object
       summary: "Obtain access token"
       tags: ["Authentication"]
-  ? "/{server_url}/api/{model_choice}/{model_uuid}/items/schema"
-  : 
+  /{server_url}/api/{model_choice}/{model_uuid}/items/schema: 
     get: 
       description: "This is to query the schema of a model library using the library UUID. When using the library UUID, you are required to provide the model choice. (i.e. LatestDraft, LatestProposed or LatestFinal)"
       operationId: get-item-schema_status
@@ -207,8 +205,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
       tags: ["Schema"]
-  ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
-  : 
+  /{server_url}/api/{model_choice}/{model_uuid}/items: 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
       operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
@@ -257,8 +254,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item using library model UUID"
       tags: ["Items"]    
-  ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
-  : 
+  /{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type''): 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
@@ -327,8 +323,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type using library model UUID"
       tags: ["Items"]
-  ? "/{server_url}/api/{model_uuid}/items"
-  : 
+  /{server_url}/api/{model_uuid}/items: 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
       operationId: list-item-of-a-specified-uuid
@@ -373,8 +368,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item UUID"
       tags: ["Items"]
-  ? "/{server_url}/api/{model_uuid}/items/schema"
-  : 
+  /{server_url}/api/{model_uuid}/items/schema: 
     get: 
       description: "This is used to query the items schema when you provide the UUID of the specific version of a published model library."
       operationId: get-item-schema
@@ -411,8 +405,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using specific model version UUID"
       tags: ["Schema"]
-  ? "/{server_url}/api/{model_uuid}/items?$filter=isof(''item_type'')"
-  : 
+  /{server_url}/api/{model_uuid}/items?$filter=isof(''item_type''): 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
