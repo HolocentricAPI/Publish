@@ -26,7 +26,7 @@ parameters:
 responses:
     requires_initialization: 
         name: '404 - Requires Initialization'
-        description: "The requested model requires initialization.This error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."}
+        description: "The requested model requires initialization.This error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
     invalid_property:
         name: '400 - Invalid Property'
         description: "The specified property names are not valid.\n\nThis error response is returned due any one of the following reasons:\n- Invalid property name is entered with the `$select` parameter.\n- Invalid item type name is provided with the `$filter` parameter."
