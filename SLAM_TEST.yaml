@@ -37,8 +37,8 @@ responses:
         name: '401 - Authorization denied'
         description: "Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:\n\n - Either the 'Repository Administrator' role or the 'API Client (Full Read)' role has not been assigned to the user invoking the API. The access token has expired (i.e. 8 hours have exceeded since the token was generated.)\n - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.\n - User is attempting to access a library that he/she does not have access.\n - Access token was generated for one server and now being used for accessing a model library on another server."
     401_unauthorized:
-        name:'401 - Unauthorized'
-        description: "Unauthorized: Access us denied due to invalid credentials.\n\nThis error response is returned due to any one of the following reasons:\n- No access token provided in the header of the API request\n- The access token provided in the API request is incorrect."
+        name: '401 - Unauthorized'
+        description: "Unauthorized: Access is denied due to invalid credentials.\n\nThis error response is returned due to any one of the following reasons:\n- No access token provided in the header of the API request\n- The access token provided in the API request is incorrect."
     invalid_model:
         name: '404 - Invalid Model'
         description: "The requested model is invalid.\n\nThis error response is returned due to any one of the following reasons:\n\n - The model library is not published.\n - Model choice is not provided along with the model library UUID when invoking an API request for a published model.\n - The model library or the specific version UUID provided is incorrect.\n - The library being queried has been publishes with RMU (Revision Mark Up) enabled."
