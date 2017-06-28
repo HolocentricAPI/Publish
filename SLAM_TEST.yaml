@@ -216,7 +216,7 @@ paths:
       summary: "Get item schema using library model UUID"
       tags: ["Schema"]
    ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
-  : 
+   : 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
       operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
