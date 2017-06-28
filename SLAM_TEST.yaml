@@ -147,7 +147,7 @@ paths:
       responses: 
         ? "200"
         : 
-          description: "Upon successful submission of the API request, an XML response will be returned with the access token, token type issued and expiry time in milliseconds."
+          description: "OK"
           schema: 
             properties: 
               access_token: 
