@@ -151,7 +151,7 @@ paths:
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid-property: 
-          $ref: "#/responses/invalid-property"
+          $ref: "#/responses/invalid_property"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -266,7 +266,7 @@ paths:
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid-property: 
-          $ref: "#/responses/invalid-property"
+          $ref: "#/responses/invalid_property"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -311,7 +311,7 @@ paths:
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid-property: 
-          $ref: "#/responses/invalid-property"
+          $ref: "#/responses/invalid_property"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -412,7 +412,7 @@ paths:
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid-property: 
-          $ref: "#/responses/invalid-property"
+          $ref: "#/responses/invalid_property"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
