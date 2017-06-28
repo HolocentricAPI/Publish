@@ -320,7 +320,7 @@ paths:
            type: object
         ? "401 - Unauthorized": 
             $ref: "#/responses/401"
-        ? "401 - Authorization Denied": 
+        ? "Authorization Denied": 
             $ref: "#/responses/authorization_denied"
         ? "400 - Invalid Property": 
             $ref: "#/responses/invalid_property"
