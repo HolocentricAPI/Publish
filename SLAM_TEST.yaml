@@ -115,7 +115,7 @@ paths:
           required: true
           type: string
         - 
-          description: "Use the value 'password' since you will be obtaining an access token using the your password credentials."
+          description: "Use the value `password` since you will be obtaining an access token using the your password credentials."
           in: query
           name: grant_type
           required: true
