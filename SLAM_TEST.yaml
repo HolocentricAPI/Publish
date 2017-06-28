@@ -200,7 +200,7 @@ paths:
           required: true
           type: string
         - 
-          description: "Specifies if you want to retreive the draft, proposed or final version of the library."
+          description: "Specifies if you want to retreive the draft, proposed or final version of the published library."
           in: path
           name: model_choice
           required: true
