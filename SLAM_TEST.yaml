@@ -319,14 +319,14 @@ paths:
             required: 
               - uuid
             type: object
-        ? "401"
+        ? "401 - Unauthorized"
         : 
           $ref: "#/responses/401"
-        authorization_denied: 
+        ? "401 - Authorization Denied": 
           $ref: "#/responses/authorization_denied"
-        invalid_property: 
+        ? "400 - Invalid Property": 
           $ref: "#/responses/invalid_property"
-        invalid_model: 
+        ? "404 - Invalid Model": 
           $ref: "#/responses/invalid_model"
         not_found: 
           $ref: "#/responses/not_found"
