@@ -45,8 +45,11 @@ tags:
       Please note the following:
 
       The access token has a default expiry time of 8 hours.
+      
       Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
+      
       Tokens must not be shared; only the requesting IP address can use the token provided.
+      
   - name: "Schema"
     x-displayName: "Schema"
     description: |
@@ -98,7 +101,7 @@ parameters:
     required: true
     type: string
   $filter: 
-    description: "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking."
+    description: "Filter out the item type using the `isOf` option. Only the `isOf` option is supported for item type checking."
     in: query
     name: $filter
     required: false
@@ -115,13 +118,13 @@ paths:
       operationId: obtain-access-token
       parameters: 
         - 
-          description: "URL of the Modelpedia server."
+          description: "URL of the Modelpedia server. e.g. `https://www.modelpedia.com`"
           in: path
           name: server_url
           required: true
           type: string
         - 
-          description: "Use the value 'password' since you will be obtaining an access token using the your password credentials."
+          description: "Use the value `password` since you will be obtaining an access token using the your password credentials."
           in: query
           name: grant_type
           required: true
@@ -166,57 +169,6 @@ paths:
             type: object
       summary: "Obtain access token"
       tags: ["Authentication"]
-  ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
-  : 
-    get: 
-      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
-      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
-      parameters: 
-        - 
-          description: "Modelpedia server URL."
-          in: path
-          name: server_url
-          required: true
-          type: string
-        - 
-          in: path
-          name: model_choice
-          required: true
-          type: string
-        - 
-          description: "The UUID of the specific version of the model library."
-          in: path
-          name: model_uuid
-          required: true
-          type: string
-        - 
-          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
-          in: query
-          name: item_uuid
-          required: true
-          type: string
-        - 
-          $ref: "#/parameters/Authorization"
-        - 
-          $ref: "#/parameters/content-type"
-      responses: 
-        ? "401"
-        : 
-          $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
-        invalid-property: 
-          $ref: "#/responses/invalid_property"
-        invalid_model: 
-          $ref: "#/responses/invalid_model"
-        not_found: 
-          $ref: "#/responses/not_found"
-        requires_initialization: 
-          $ref: "#/responses/requires_initialization"
-        unauthorized: 
-          $ref: "#/responses/unauthorized"
-      summary: "Get item details by specifying the item using library model UUID"
-      tags: ["Items"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items/schema"
   : 
     get: 
@@ -263,6 +215,56 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
       tags: ["Schema"]
+   ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
+  : 
+    get: 
+      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
+      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
+      parameters: 
+        - 
+          description: "Modelpedia server URL."
+          in: path
+          name: server_url
+          required: true
+          type: string
+        - 
+          in: path
+          name: model_choice
+          required: true
+          type: string
+        - 
+          description: "The UUID of the specific version of the model library."
+          in: path
+          name: model_uuid
+          required: true
+          type: string
+        - 
+          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
+          in: query
+          name: item_uuid
+          required: true
+          type: string
+        - 
+          $ref: "#/parameters/Authorization"
+        - 
+          $ref: "#/parameters/content-type"
+      responses: 
+        ? "401": 
+          $ref: "#/responses/401"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
+        invalid-property: 
+          $ref: "#/responses/invalid_property"
+        invalid_model: 
+          $ref: "#/responses/invalid_model"
+        not_found: 
+          $ref: "#/responses/not_found"
+        requires_initialization: 
+          $ref: "#/responses/requires_initialization"
+        unauthorized: 
+          $ref: "#/responses/unauthorized"
+      summary: "Get item details by specifying the item using library model UUID"
+      tags: ["Items"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
   : 
     get: 
@@ -306,8 +308,7 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ? "200"
-        : 
+        ? "200": 
           description: OK
           schema: 
             properties: 
