@@ -35,11 +35,11 @@ info:
         
         Please note the following:
         
-        The access token has a default expiry time of 8 hours.
+        - The access token has a default expiry time of 8 hours.
         
-        Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
+        - Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
         
-        Tokens must not be shared; only the requesting IP address can use the token provided.
+        - Tokens must not be shared; only the requesting IP address can use the token provided.
     
   - name: Schema
     x-displayName: Schema
@@ -50,8 +50,8 @@ info:
     
   - name: Items
     x-displayName: Items 
-    description: "This API request is used to retreive the items and associated relationships of a specified item type in the queried library.\n\n\
-        The response received will vary based on the model configuration done in Holocentric Modeler.    \n"
+    description: | 
+        This API request is used to retreive the items and associated relationships of a specified item type in the queried library. The response received will vary based on the model configuration done in Holocentric Modeler.    \n"
     
 parameters: 
   $count: 
