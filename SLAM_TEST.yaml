@@ -2,58 +2,29 @@
 basePath: ""
 host: baseuri.com
 info: 
-  title: "SLAM API"
-  version: 3.1.3
   description: |
-    # Overview
-    Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. 
-    
-    This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. 
-    
-    API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. 
-    
-    This document is aimed at helping you work with this API functionality in Modelpedia.
-    
-    # Prerequisites
-    
-    The API license key needs to be uploaded to the server.
-    The SSL certificate needs to be installed for the API.
-    The user making the API requests needs to be assigned the System Authority Role 'Repository Administrator' and the role 'API Client (Full Read)'.
-
-    # License
-    
-    A separate API license key is required to be installed in Modelpedia before a published library can be accessed via the exposed API.
-    
-    API callers are required to be authorised Modelpedia users and therefore follow standard subscription licensing model.
-    
-tags:
-  - name: "Authentication"
-    x-displayName: "Authentication"
-    description: |
-      Holocentric BMS uses OAuth for the service authentication. This authentication mechanism requires an initial call to authenticate the API user based on the user name and password provided, and will then return an access token.
+      # Overview
+      Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. 
       
-      The token that is received can then be used for subsequent API requests.
+      This API can be used by third party applciations to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. 
       
-      Please note the following:
-
-      The access token has a default expiry time of 8 hours.
+      API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. 
       
-      Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
+      This document is aimed at helping you work with this API functionality in Modelpedia.
       
-      Tokens must not be shared; only the requesting IP address can use the token provided.
+      # Prerequisites
       
-  - name: "Schema"
-    x-displayName: "Schema"
-    description: |
-      These API requests are used to retreive the schema of a queried library. It list out the item types available in the library along with the XML schema for those item types.
+      The API license key needs to be uploaded to the server.
+      The SSL certificate needs to be installed for the API.
+      The user making the API requests needs to be assigned the System Authority Role 'Repository Administrator' and the role 'API Client (Full Read)'.
       
-      The response received will vary based on the model configuration done in Holocentric Modeler.
-  - name: "Items"
-    x-displayName: "Items"
-    description: |
-      This API request is used to retreive the items and associated relationships of a specified item type in the queried library.
-
-      The response received will vary based on the model configuration done in Holocentric Modeler.    
+      # License
+      
+      A separate API license key is required to be installed in Modelpedia before a published library can be accessed via the exposed API.
+      
+      API callers are required to be authorised Modelpedia users and therefore follow standard subscription licensing model.
+  title: "SLAM API"
+  version: "3.1.3"
 parameters: 
   $count: 
     default: true
@@ -62,6 +33,12 @@ parameters:
     name: $count
     required: false
     type: boolean
+  $filter: 
+    description: "Filter out the item type using the `isOf` option. Only the `isOf` option is supported for item type checking."
+    in: query
+    name: $filter
+    required: false
+    type: string
   $select: 
     description: "This parameter can be used to rereive specific properties of an item type."
     in: query
@@ -92,14 +69,9 @@ parameters:
     name: content-type
     required: true
     type: string
-  $filter: 
-    description: "Filter out the item type using the `isOf` option. Only the `isOf` option is supported for item type checking."
-    in: query
-    name: $filter
-    required: false
-    type: string
 paths: 
-  /{server_url}/api/token: 
+  ? "/{server_url}/api/token"
+  : 
     post: 
       consumes: 
         - application/x-www-form-urlencoded
@@ -159,8 +131,64 @@ paths:
               - token_type
             type: object
       summary: "Obtain access token"
-      tags: ["Authentication"]
-  /{server_url}/api/{model_choice}/{model_uuid}/items/schema: 
+      tags: 
+        - Authentication
+  ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
+  : 
+    get: 
+      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
+      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
+      parameters: 
+        - 
+          description: "Modelpedia server URL."
+          in: path
+          name: server_url
+          required: true
+          type: string
+        - 
+          in: path
+          name: model_choice
+          required: true
+          type: string
+        - 
+          description: "The UUID of the specific version of the model library."
+          in: path
+          name: model_uuid
+          required: true
+          type: string
+        - 
+          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
+          in: query
+          name: item_uuid
+          required: true
+          type: string
+        - 
+          $ref: "#/parameters/Authorization"
+        - 
+          $ref: "#/parameters/content-type"
+      responses: 
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
+        invalid-property: 
+          $ref: "#/responses/invalid_property"
+        invalid_model: 
+          $ref: "#/responses/invalid_model"
+        not_found: 
+          $ref: "#/responses/not_found"
+        requires_initialization: 
+          $ref: "#/responses/requires_initialization"
+        unauthorized: 
+          $ref: "#/responses/unauthorized"
+        ? 
+          $ref: "#/responses/401"
+          ? "401"
+          : ~
+        : ~
+      summary: "Get item details by specifying the item using library model UUID"
+      tags: 
+        - Items
+  ? "/{server_url}/api/{model_choice}/{model_uuid}/items/schema"
+  : 
     get: 
       description: "This is to query the schema of a model library using the library UUID. When using the library UUID, you are required to provide the model choice. (i.e. LatestDraft, LatestProposed or LatestFinal)"
       operationId: get-item-schema_status
@@ -204,57 +232,10 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
-      tags: ["Schema"]
-  /{server_url}/api/{model_choice}/{model_uuid}/items: 
-    get: 
-      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
-      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
-      parameters: 
-        - 
-          description: "Modelpedia server URL."
-          in: path
-          name: server_url
-          required: true
-          type: string
-        - 
-          in: path
-          name: model_choice
-          required: true
-          type: string
-        - 
-          description: "The UUID of the specific version of the model library."
-          in: path
-          name: model_uuid
-          required: true
-          type: string
-        - 
-          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
-          in: query
-          name: item_uuid
-          required: true
-          type: string
-        - 
-          $ref: "#/parameters/Authorization"
-        - 
-          $ref: "#/parameters/content-type"
-      responses: 
-        ? "401": 
-          $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
-        invalid-property: 
-          $ref: "#/responses/invalid_property"
-        invalid_model: 
-          $ref: "#/responses/invalid_model"
-        not_found: 
-          $ref: "#/responses/not_found"
-        requires_initialization: 
-          $ref: "#/responses/requires_initialization"
-        unauthorized: 
-          $ref: "#/responses/unauthorized"
-      summary: "Get item details by specifying the item using library model UUID"
-      tags: ["Items"]    
-  /{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type''): 
+      tags: 
+        - Schema
+  ? "/{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type'')"
+  : 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
@@ -296,16 +277,6 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ? "200": 
-          description: OK
-          schema: 
-            properties: 
-              uuid: 
-                description: "UUID of the item"
-                type: string
-            required: 
-              - uuid
-            type: object
         ? "401"
         : 
           $ref: "#/responses/401"
@@ -321,9 +292,24 @@ paths:
           $ref: "#/responses/requires_initialization"
         unauthorized: 
           $ref: "#/responses/unauthorized"
+        ? 
+          ? "200"
+          : ~
+          description: OK
+          schema: 
+            properties: 
+              uuid: 
+                description: "UUID of the item"
+                type: string
+            required: 
+              - uuid
+            type: object
+        : ~
       summary: "List items of a specified item type using library model UUID"
-      tags: ["Items"]
-  /{server_url}/api/{model_uuid}/items: 
+      tags: 
+        - Items
+  ? "/{server_url}/api/{model_uuid}/items"
+  : 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
       operationId: list-item-of-a-specified-uuid
@@ -367,8 +353,10 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item details by specifying the item UUID"
-      tags: ["Items"]
-  /{server_url}/api/{model_uuid}/items/schema: 
+      tags: 
+        - Items
+  ? "/{server_url}/api/{model_uuid}/items/schema"
+  : 
     get: 
       description: "This is used to query the items schema when you provide the UUID of the specific version of a published model library."
       operationId: get-item-schema
@@ -404,8 +392,10 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using specific model version UUID"
-      tags: ["Schema"]
-  /{server_url}/api/{model_uuid}/items?$filter=isof(''item_type''): 
+      tags: 
+        - Schema
+  ? "/{server_url}/api/{model_uuid}/items?$filter=isof(''item_type'')"
+  : 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
@@ -468,7 +458,8 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type"
-      tags: ["Items"]
+      tags: 
+        - Items
 responses: 
   401: 
     description: |-
@@ -533,3 +524,31 @@ responses:
 schemes: 
   - http
 swagger: "2.0"
+tags: 
+  - 
+    description: |
+        Holocentric BMS uses OAuth for the service authentication. This authentication mechanism requires an initial call to authenticate the API user based on the user name and password provided, and will then return an access token.
+        
+        The token that is received can then be used for subsequent API requests.
+        
+        Please note the following:
+        
+        The access token has a default expiry time of 8 hours.
+        
+        Subsequent requests for a token within the 8 hour expiry period will not expire existing valid tokens.
+        
+        Tokens must not be shared; only the requesting IP address can use the token provided.
+    name: Authentication
+    x-displayName: Authentication
+  - 
+    description: |
+        These API requests are used to retreive the schema of a queried library. It list out the item types available in the library along with the XML schema for those item types.
+        
+        The response received will vary based on the model configuration done in Holocentric Modeler.
+    name: Schema
+    x-displayName: Schema
+  - 
+    description: "This API request is used to retreive the items and associated relationships of a specified item type in the queried library.\n\n\
+        The response received will vary based on the model configuration done in Holocentric Modeler.    \n"
+    name: Items
+    x-displayName: Items
