@@ -20,7 +20,7 @@ parameters:
     $top: {name: $top, in: query, description: "This is a paging option to return the specified number of items from the top of the list. \ne.g. $top=50 will return the first 50 items in the list.", required: false, type: integer}
     $skip: {name: $skip, in: query, description: 'This is a paging option to skip the specified number of items in the list. e.g. $skip=50 will skip the first 50 items in the list and return results from the 51st item onwards.', required: false, type: integer}
     $count: {name: $count, in: query, description: 'This option is used when you want to retreive a count of the number of items that are available for a specified item type. The count value will be provided within the header of the API response.', required: false, type: boolean, default: true}
-    $filter: {name: $filter, in: query, description: 'Filter out the item type using the ''isOf'' option. Only the ''isOf'' option is supported for item type checking.', required: false, type: string}
+    filter: {name: $filter, in: query, description: 'Filter out the item type using the ''isOf'' option. Only the ''isOf'' option is supported for item type checking.', required: false, type: string}
     $select: {name: $select, in: query, description: 'This parameter can be used to rereive specific properties of an item type.', required: false, type: string}
     content-type: {name: content-type, in: header, required: true, type: string}
     Authorization: {name: Authorization, in: header, required: true, type: string}
