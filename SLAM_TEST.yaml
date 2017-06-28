@@ -326,8 +326,6 @@ paths:
           $ref: "#/responses/authorization_denied"
         ? "400 - Invalid Property": 
           $ref: "#/responses/invalid_property"
-        ? "404 - Invalid Model": 
-          $ref: "#/responses/invalid_model"
         ? "not_found": 
           $ref: "#/responses/not_found"
         ? "requires_initialization": 
