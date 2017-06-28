@@ -499,9 +499,7 @@ responses:
   404: 
     description: |-
         Invalid Model: The requested model is invalid.
-        
-        The requested model is invalid.
-        
+            
         This error response is returned due to any one of the following reasons:
         
          - The model library is not published.
