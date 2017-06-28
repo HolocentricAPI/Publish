@@ -308,11 +308,11 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ?"200": 
-           description: "OK"
+        ? "200"
+        : 
+          description: OK
         401: 
-           description:
-              $ref: "#/responses/401"
+          $ref: "#/responses/401"
         "Authorization Denied": 
            description:
               $ref: "#/responses/authorization_denied"
