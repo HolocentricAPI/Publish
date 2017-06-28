@@ -464,6 +464,16 @@ paths:
         ? "401"
         : 
           $ref: "#/responses/401"
+         ? "invalid model":  
+              description: |-
+                    The requested model is invalid.
+        
+                    This error response is returned due to any one of the following reasons:
+        
+                    - The model library is not published.
+                    - Model choice is not provided along with the model library UUID when invoking an API request for a published model.
+                    - The model library or the specific version UUID provided is incorrect.
+                    - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid_property: 
