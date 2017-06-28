@@ -168,7 +168,7 @@ paths:
             type: object
       summary: "Obtain access token"
       tags: ["Authentication"]
-  ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
+  ? "/{server_url}/api/{model_choice}/{model_uuid}/items(item_uuid)"
   : 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
