@@ -205,8 +205,8 @@ paths:
         ? "401"
         : 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+        501: 
+          $ref: "#/responses/501"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -253,8 +253,8 @@ paths:
           description: OK
         401: 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+        501: 
+          $ref: "#/responses/501"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -315,7 +315,7 @@ paths:
               $ref: "#/responses/401"
         "Authorization Denied": 
            description:
-              $ref: "#/responses/authorization_denied"
+              $ref: "#/responses/501"
         "400 - Invalid Property": 
            description:
               $ref: "#/responses/invalid_property"
@@ -361,8 +361,8 @@ paths:
         ? "401"
         : 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+        501: 
+          $ref: "#/responses/501"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -401,8 +401,8 @@ paths:
         ? "401"
         : 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+        501: 
+          $ref: "#/responses/501"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -464,8 +464,8 @@ paths:
         ? "401"
         : 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+        501: 
+          $ref: "#/responses/501"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -487,7 +487,7 @@ responses:
         - No access token provided in the header of the API request
         - The access token provided in the API request is incorrect.
     name: "401 - Unauthorized"
-  authorization_denied: 
+  501: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
         
