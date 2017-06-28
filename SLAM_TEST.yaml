@@ -214,7 +214,7 @@ paths:
         unauthorized: 
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
-     tags: ["Schema"]
+      tags: ["Schema"]
   ? "/{server_url}/api/{model_choice}/{model_uuid}/items"
    : 
     get: 
