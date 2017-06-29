@@ -200,7 +200,10 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? 401
+        ? "200"
+        : 
+          description: "OK" 
+        401
         : 
           $ref: "#/responses/401"
         authorization_denied: 
@@ -358,7 +361,10 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? 401
+        ? "200"
+        : 
+          description: "OK" 
+        401
         : 
           $ref: "#/responses/401"
         authorization_denied: 
@@ -399,7 +405,10 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? 401
+        ? "200"
+        : 
+          description: "OK" 
+        401
         : 
           $ref: "#/responses/401"
         500: 
