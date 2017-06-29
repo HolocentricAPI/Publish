@@ -280,7 +280,7 @@ paths:
           required: true
           type: string
         - 
-          description: "Specifies if you want to retreive the draft, proposed or final version of the library. You can use any one of the values `LatestDraft`, `LatestProposed` or `LatestFinal`.
+          description: "Specifies if you want to retreive the draft, proposed or final version of the library. You can use any one of the values `LatestDraft`, `LatestProposed` or `LatestFinal`."
           in: path
           name: model_choice
           required: true
