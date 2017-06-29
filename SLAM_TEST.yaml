@@ -204,8 +204,8 @@ paths:
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
-        invalid_property: 
-          $ref: "#/responses/invalid_property"
+        400: 
+          $ref: "#/responses/400"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -311,9 +311,9 @@ paths:
         "Authorization Denied": 
            description:
               $ref: "#/responses/authorization_denied"
-        "400 - Invalid Property": 
+        400: 
            description:
-              $ref: "#/responses/invalid_property"
+              $ref: "#/responses/400"
         "404 - Invalid Model": 
             $ref: "#/responses/invalid_model"
         "not_found": 
@@ -357,8 +357,8 @@ paths:
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
-        invalid_property: 
-          $ref: "#/responses/invalid_property"
+        400: 
+          $ref: "#/responses/400"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -458,8 +458,8 @@ paths:
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
-        invalid_property: 
-          $ref: "#/responses/invalid_property"
+        400: 
+          $ref: "#/responses/400"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -499,7 +499,7 @@ responses:
          - The model library or the specific version UUID provided is incorrect.
          - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
     name: "404 - Invalid Model"
-  invalid_property: 
+  400: 
     description: |-
         The specified property names are not valid.
         
@@ -516,7 +516,7 @@ responses:
   requires_initialization: 
     description: "The requested model requires initialization.This error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
     name: "404 - Requires Initialization"
-  server_error: 
+  500: 
     description: |-
         An internal server error occured. 
         
