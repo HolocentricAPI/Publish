@@ -464,12 +464,12 @@ paths:
             type: object
         401: 
           $ref: "#/responses/401"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
         400: 
           $ref: "#/responses/400"
         500: 
           $ref: "#/responses/500"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
