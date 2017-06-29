@@ -360,8 +360,10 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? 401
+        ? "200"
         : 
+          description: "OK" 
+        401: 
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
