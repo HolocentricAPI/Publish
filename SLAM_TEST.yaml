@@ -164,6 +164,8 @@ paths:
               - expires_in
               - token_type
             type: object
+        500: 
+          $ref: "#/responses/500"
       summary: "Obtain access token"
       tags: ["Authentication"]
   /{server_url}/api/{model_choice}/{model_uuid}/items(item_uuid): 
@@ -206,6 +208,8 @@ paths:
           $ref: "#/responses/authorization_denied"
         400: 
           $ref: "#/responses/400"
+        500: 
+          $ref: "#/responses/500"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -249,6 +253,8 @@ paths:
           description: OK
         401: 
           $ref: "#/responses/401"
+        500: 
+          $ref: "#/responses/500"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid_model: 
@@ -308,6 +314,8 @@ paths:
           description: OK
         401: 
           $ref: "#/responses/401"
+        500: 
+          $ref: "#/responses/500"
         "Authorization Denied": 
            description:
               $ref: "#/responses/authorization_denied"
@@ -358,6 +366,8 @@ paths:
           $ref: "#/responses/authorization_denied"
         400: 
           $ref: "#/responses/400"
+        500: 
+          $ref: "#/responses/500"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -393,6 +403,8 @@ paths:
         ? 401
         : 
           $ref: "#/responses/401"
+        500: 
+          $ref: "#/responses/500"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         invalid_model: 
@@ -459,6 +471,8 @@ paths:
           $ref: "#/responses/authorization_denied"
         400: 
           $ref: "#/responses/400"
+        500: 
+          $ref: "#/responses/500"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -517,7 +531,7 @@ responses:
     name: "404 - Requires Initialization"
   500: 
     description: |-
-        An internal server error occured. 
+        Server Error: An internal server error occured. 
         
         This error response is returned due to any one of the following reasons:
          - The API license has not been uploaded to the server.
