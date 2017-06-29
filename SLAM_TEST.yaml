@@ -101,7 +101,7 @@ parameters:
     required: true
     type: string
   $filter: 
-    description: "Filter out the item type using the 'isOf' option. Only the 'isOf' option is supported for item type checking."
+    description: "Filter out the item type using the `isOf` option. Only the `isOf` option is supported for item type checking."
     in: query
     name: $filter
     required: false
@@ -141,7 +141,8 @@ paths:
           required: true
           type: string
       responses: 
-        ? "200": 
+        ? "200"
+        : 
           description: "OK"
           schema: 
             properties: 
@@ -199,9 +200,8 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? "200": 
-          description: "OK" 
-        401: 
+        ? 401
+        : 
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
@@ -247,7 +247,8 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? "200": 
+        ? "200"
+        : 
           description: OK
         401: 
           $ref: "#/responses/401"
@@ -307,7 +308,8 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ? "200": 
+        ? "200"
+        : 
           description: OK
         401: 
           $ref: "#/responses/401"
@@ -356,9 +358,8 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? "200": 
-          description: "OK" 
-        401: 
+        ? 401
+        : 
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
@@ -398,9 +399,8 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? "200": 
-          description: "OK" 
-        401: 
+        ? 401
+        : 
           $ref: "#/responses/401"
         500: 
           $ref: "#/responses/500"
@@ -452,7 +452,8 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ? "200": 
+        ? "200"
+        : 
           description: OK
           schema: 
             properties: 
@@ -462,14 +463,15 @@ paths:
             required: 
               - uuid
             type: object
-        401: 
+        ? 401
+        : 
           $ref: "#/responses/401"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         400: 
           $ref: "#/responses/400"
         500: 
           $ref: "#/responses/500"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
