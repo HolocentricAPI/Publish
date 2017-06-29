@@ -261,7 +261,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using library model UUID"
       tags: ["Schema"]
-  /{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof(''item_type''): 
+  /{server_url}/api/{model_choice}/{model_uuid}/items?$filter=isof('item_type'): 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
@@ -312,8 +312,7 @@ paths:
            description:
               $ref: "#/responses/authorization_denied"
         400: 
-           description:
-              $ref: "#/responses/400"
+          $ref: "#/responses/400"
         "404 - Invalid Model": 
             $ref: "#/responses/invalid_model"
         "not_found": 
@@ -324,7 +323,7 @@ paths:
             $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type using library model UUID"
       tags: ["Items"]
-  /{server_url}/api/{model_uuid}/items: 
+  /{server_url}/api/{model_uuid}/items(item_uuid): 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
       operationId: list-item-of-a-specified-uuid
@@ -406,7 +405,7 @@ paths:
           $ref: "#/responses/unauthorized"
       summary: "Get item schema using specific model version UUID"
       tags: ["Schema"]
-  /{server_url}/api/{model_uuid}/items?$filter=isof(''item_type''): 
+  /{server_url}/api/{model_uuid}/items?$filter=isof('item_type'): 
     get: 
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the 'isOf' option. 
