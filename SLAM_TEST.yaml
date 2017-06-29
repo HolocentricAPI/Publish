@@ -89,13 +89,13 @@ parameters:
     required: false
     type: integer
   Authorization: 
-    description: "Example: 'Bearer b7d03a6947b217efb6f3ec3bd3504582'"
+    description: "Example: `Bearer b7d03a6947b217efb6f3ec3bd3504582`"
     in: header
     name: Authorization
     required: true
     type: string
   content-type: 
-    description: "Example: 'application/xml'"
+    description: "Example: `application/xml`"
     in: header
     name: content-type
     required: true
