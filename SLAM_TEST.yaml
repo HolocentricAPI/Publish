@@ -500,7 +500,7 @@ responses:
     name: "404 - Invalid Model"
   400: 
     description: |-
-        The specified property names are not valid.
+        Invalid Property: The specified property names are not valid.
         
         This error response is returned due any one of the following reasons:
         - Invalid property name is entered with the `$select` parameter.
