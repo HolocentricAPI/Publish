@@ -205,8 +205,7 @@ paths:
         ? "200"
         : 
           description: OK
-        401
-        : 
+        401: 
           $ref: "#/responses/401"
         601: 
           $ref: "#/responses/601"
