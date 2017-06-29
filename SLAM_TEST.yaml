@@ -202,13 +202,11 @@ paths:
         - 
           $ref: "#/parameters/content-type"
       responses: 
-        ? "200"
+        ? 401
         : 
-          description: OK
-        401: 
           $ref: "#/responses/401"
-        601: 
-          $ref: "#/responses/601"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -255,8 +253,8 @@ paths:
           description: OK
         401: 
           $ref: "#/responses/401"
-        601: 
-          $ref: "#/responses/601"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -315,9 +313,9 @@ paths:
           description: OK
         401: 
           $ref: "#/responses/401"
-        601: 
+        "Authorization Denied": 
            description:
-              $ref: "#/responses/601"
+              $ref: "#/responses/authorization_denied"
         "400 - Invalid Property": 
            description:
               $ref: "#/responses/invalid_property"
@@ -331,7 +329,7 @@ paths:
             $ref: "#/responses/unauthorized"
       summary: "List items of a specified item type using library model UUID"
       tags: ["Items"]
-  ? "/{server_url}/api/{model_uuid}/items(item_uuid)"
+  ? "/{server_url}/api/{model_uuid}/items"
   : 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
@@ -363,8 +361,8 @@ paths:
         ? 401
         : 
           $ref: "#/responses/401"
-        601: 
-          $ref: "#/responses/601"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -403,8 +401,8 @@ paths:
         ? 401
         : 
           $ref: "#/responses/401"
-        601: 
-          $ref: "#/responses/601"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_model: 
           $ref: "#/responses/invalid_model"
         not_found: 
@@ -466,8 +464,8 @@ paths:
         ? 401
         : 
           $ref: "#/responses/401"
-        601: 
-          $ref: "#/responses/601"
+        authorization_denied: 
+          $ref: "#/responses/authorization_denied"
         invalid_property: 
           $ref: "#/responses/invalid_property"
         invalid_model: 
@@ -489,7 +487,7 @@ responses:
         - No access token provided in the header of the API request
         - The access token provided in the API request is incorrect.
     name: "401 - Unauthorized"
-  601: 
+  authorization_denied: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
         
