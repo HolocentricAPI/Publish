@@ -202,7 +202,7 @@ paths:
       responses: 
         ? "200"
         : 
-          description: OK
+          description: "OK"
         401: 
           $ref: "#/responses/401"
         authorization_denied: 
