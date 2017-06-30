@@ -406,8 +406,7 @@ paths:
         ? "200"
         : 
           description: "OK"  
-        ? "401"
-        : 
+        401: 
           $ref: "#/responses/401"
         500: 
           $ref: "#/responses/500"
@@ -470,8 +469,7 @@ paths:
             required: 
               - uuid
             type: object
-        ? 401
-        : 
+        401: 
           $ref: "#/responses/401"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
