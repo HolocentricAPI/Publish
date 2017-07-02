@@ -22,7 +22,7 @@ info:
       A separate API license key is required to be installed in Modelpedia before a published library can be accessed via the exposed API.
       
       API callers are required to be authorized Modelpedia users and therefore follow standard subscription licensing model.
-  title: "SLAM API"
+  title: "Holocentric BMS3 API"
   version: 3.1.3
 # The tags on paths define the menu sections in the ReDoc documentation, so
 # the usage of tags must make sense for that:
