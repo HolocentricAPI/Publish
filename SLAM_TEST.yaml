@@ -275,7 +275,7 @@ paths:
                element: 
                 - 
              _name: uuid
-                 _type: "xs:string"
+                 _type:"xs:string"
                  __prefix: xs
                 - 
              _name: title
