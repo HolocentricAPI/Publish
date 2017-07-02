@@ -258,7 +258,7 @@ paths:
              __prefix: xs
              __text: "version: {FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}"
              toString: 
-            __prefix: xs
+           __prefix: xs
            complexType: 
             - 
              sequence: 
