@@ -252,6 +252,300 @@ paths:
         ? "200"
         : 
           description: OK
+		  schema: 
+			 annotation: 
+			  documentation: 
+			   __prefix: xs
+			   __text: "version: {FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}"
+			   toString: 
+			  __prefix: xs
+			 complexType: 
+			  - 
+			   sequence: 
+				any: 
+				 _minOccurs: 0
+				 _maxOccurs: 1
+				 __prefix: xs
+				__prefix: xs
+			   _name: Any
+			   __prefix: xs
+			  - 
+			   sequence: 
+				choice: 
+				 element: 
+				  - 
+			   _name: uuid
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: title
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: businessRule
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: category
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: dataQualityObjective
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: dataQualityPrinciple
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: description
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: effectiveEndDate
+				   _type: "xs:date"
+				   __prefix: xs
+				  - 
+			   _name: effectiveStartDate
+				   _type: "xs:date"
+				   __prefix: xs
+				  - 
+			   _name: guideForUse
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: name
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: uid
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: registrationStatus
+				   _type: CollectionOfRegistrationStatus
+				   __prefix: xs
+				  - 
+			   _name: relatedDataReferences
+				   _type: CollectionOfMetadataItemRelatedDataReference
+				   __prefix: xs
+				  - 
+			   complexType: 
+					sequence: 
+					 element: 
+					  _name: value
+					  _type: "xs:string"
+					  __prefix: xs
+					 __prefix: xs
+					__prefix: xs
+				   _name: aliases
+				   __prefix: xs
+				  - 
+			   complexType: 
+					sequence: 
+					 element: 
+					  _name: value
+					  _type: "xs:string"
+					  __prefix: xs
+					 __prefix: xs
+					__prefix: xs
+				   _name: alternateName
+				   __prefix: xs
+				  - 
+			   _name: steward
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: custodian
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: keyContact
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: administrators
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: dataSetSpecifications
+				   _type: CollectionOfDataSetSpecification
+				   __prefix: xs
+				  - 
+			   _name: glossaryItems
+				   _type: CollectionOfGlossaryItemTerm
+				   __prefix: xs
+				  - 
+			   _name: validations
+				   _type: CollectionOfValidation
+				   __prefix: xs
+				 _maxOccurs: unbounded
+				 __prefix: xs
+				__prefix: xs
+			   attribute: 
+				_name: refUuid
+				_type: "xs:string"
+				_use: optional
+				__prefix: xs
+			   _name: BusinessRule
+			   __prefix: xs
+			  - 
+			   sequence: 
+				choice: 
+				 element: 
+				  - 
+			   _name: uuid
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: title
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: caseStudy
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: category
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: collectionMethods
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: comments
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: context
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: description
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: effectiveEndDate
+				   _type: "xs:date"
+				   __prefix: xs
+				  - 
+			   _name: effectiveStartDate
+				   _type: "xs:date"
+				   __prefix: xs
+				  - 
+			   _name: guideForUse
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: name
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: origin
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: periodicReviewByDate
+				   _type: "xs:date"
+				   __prefix: xs
+				  - 
+			   _name: referenceDocuments
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: submittingOrganisation
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: uid
+				   _type: "xs:string"
+				   __prefix: xs
+				  - 
+			   _name: registrationStatus
+				   _type: CollectionOfRegistrationStatus
+				   __prefix: xs
+				  - 
+			   _name: relatedDataReferences
+				   _type: CollectionOfMetadataItemRelatedDataReference
+				   __prefix: xs
+				  - 
+			   complexType: 
+					sequence: 
+					 element: 
+					  _name: value
+					  _type: "xs:string"
+					  __prefix: xs
+					 __prefix: xs
+					__prefix: xs
+				   _name: aliases
+				   __prefix: xs
+				  - 
+			   complexType: 
+					sequence: 
+					 element: 
+					  _name: value
+					  _type: "xs:string"
+					  __prefix: xs
+					 __prefix: xs
+					__prefix: xs
+				   _name: alternateName
+				   __prefix: xs
+				  - 
+			   _name: metadataItems
+				   _type: CollectionOfMetadataItem
+				   __prefix: xs
+				  - 
+			   _name: administrators
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: custodian
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: steward
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: keyContact
+				   _type: CollectionOfPositionInstance
+				   __prefix: xs
+				  - 
+			   _name: glossaryItems
+				   _type: CollectionOfGlossaryItemTerm
+				   __prefix: xs
+				 _maxOccurs: unbounded
+				 __prefix: xs
+				__prefix: xs
+			   attribute: 
+				_name: refUuid
+				_type: "xs:string"
+				_use: optional
+				__prefix: xs
+			   _name: GlossaryItemTerm
+			   __prefix: xs
+			 element: 
+			  complexType: 
+			   choice: 
+				element: 
+				 - 
+			   _name: BusinessRule
+				  _type: BusinessRule
+				  __prefix: xs
+				 - 
+			   _name: GlossaryItemTerm
+				  _type: GlossaryItemTerm
+				  __prefix: xs
+				_maxOccurs: unbounded
+				__prefix: xs
+			   __prefix: xs
+			  _name: items
+			  __prefix: xs
+			 "_xmlns:xs": "http://www.w3.org/2001/XMLSchema"
+			 _attributeFormDefault: unqualified
+			 _elementFormDefault: qualified
+			 __prefix: xs
         401: 
           $ref: "#/responses/401"
         500: 
