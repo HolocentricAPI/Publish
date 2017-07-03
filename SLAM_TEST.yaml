@@ -13,6 +13,7 @@ info:
   x-logo: 
     url: "https://media.licdn.com/media/p/7/005/0a3/2dd/144b17a.png"
   description: |
+      Documnetation on how to access Holocentric BMS data via API.
       # Overview
       Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. 
       
@@ -21,7 +22,6 @@ info:
       API access is performed over HTTPS and accessed from a variable URI based on client installations and libraries. 
       
       This document is aimed at helping you work with this API functionality in Modelpedia.
-      
       # Prerequisites
       
       - The API license key needs to be uploaded to the server.
