@@ -1,4 +1,11 @@
-basePath: ""
+swagger: "2.0"
+schemes:
+  - "https"
+produces:
+  - "application/xml"
+consumes:
+  - "application/xml"
+basePath: "/"
 host: {server_url}
 info: 
   description: |
