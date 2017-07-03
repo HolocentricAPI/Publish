@@ -324,19 +324,9 @@ paths:
                         __prefix: xs
                        __prefix: xs
                       __prefix: xs
-                  -  
-               complexType: 
-                  sequence: 
-                   element: 
-                    _name: value
-                    _type: "xs:string"
+                  - _name: alternateName
                     __prefix: xs
-                   __prefix: xs
-                  __prefix: xs
-                 _name: alternateName
-                 __prefix: xs
-                - 
-             _name: steward
+                  - _name: steward
                  _type: CollectionOfPositionInstance
                  __prefix: xs
                 - 
