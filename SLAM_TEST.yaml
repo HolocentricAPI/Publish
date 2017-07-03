@@ -316,7 +316,8 @@ paths:
                     __prefix: xs
                   - _name: aliases
                     __prefix: xs
-                     complexType: sequence: 
+                     complexType:
+                      sequence: 
                        element: 
                         _name: value
                         _type: "xs:string"
