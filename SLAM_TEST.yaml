@@ -314,17 +314,16 @@ paths:
                   - _name: relatedDataReferences
                     _type: CollectionOfMetadataItemRelatedDataReference
                     __prefix: xs
-                  - 
-               complexType: 
-                  sequence: 
-                   element: 
-                    _name: value
-                    _type: "xs:string"
+                  - _name: aliases
                     __prefix: xs
-                   __prefix: xs
-                  __prefix: xs
-                 _name: aliases
-                 __prefix: xs
+                     complexType: 
+                      sequence: 
+                        element: 
+                          _name: value
+                          _type: "xs:string"
+                          __prefix: xs
+                        __prefix: xs
+                      __prefix: xs
                   -  
                complexType: 
                   sequence: 
