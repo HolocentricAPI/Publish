@@ -5,7 +5,7 @@ produces:
   - "application/xml"
 # consumes:
 #   - "application/xml"
-basePath: "/"
+# basePath: "/"
 host: "/"
 info: 
   title: "Holocentric BMS3 API"
