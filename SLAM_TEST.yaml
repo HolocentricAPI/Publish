@@ -487,21 +487,21 @@ paths:
           schema:
             oneOf:
             - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/authorization_denied"
-        authorization_denied: 
-          $ref: "#/responses/authorization_denied"
+            - "$ref": "#/responses/Authorization_denied"
         400: 
-          $ref: "#/responses/400"
+          description: Invalid property or Unauthorized
+          schema:
+            oneOf:
+            - "$ref": "#/responses/Invalid_property"
+            - "$ref": "#/responses/Unauthorized"
+        404: 
+          description: Invalid model or Requires initialization
+          schema:
+            oneOf:
+            - "$ref": "#/responses/Invalid_model"
+            - "$ref": "#/responses/Requires_initialization"
         500: 
-          $ref: "#/responses/500"
-        invalid_model: 
-          $ref: "#/responses/invalid_model"
-        not_found: 
-          $ref: "#/responses/not_found"
-        requires_initialization: 
-          $ref: "#/responses/requires_initialization"
-        unauthorized: 
-          $ref: "#/responses/unauthorized"
+          $ref: "#/responses/Server_error"
       summary: "List items of a specified item type"
       tags: ["Items"]
 responses: 
@@ -512,7 +512,7 @@ responses:
         This error response is returned due to any one of the following reasons:
         - No access token provided in the header of the API request
         - The access token provided in the API request is incorrect.
-  authorization_denied: 
+  Authorization_denied: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
         
@@ -520,7 +520,7 @@ responses:
          - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.
          - User is attempting to access a library that he/she does not have access.
          - Access token was generated for one server and now being used for accessing a model library on another server.
-  invalid_model: 
+  Invalid_model: 
     description: |-
         The requested model is invalid.
         
@@ -530,25 +530,21 @@ responses:
          - Model choice is not provided along with the model library UUID when invoking an API request for a published model.
          - The model library or the specific version UUID provided is incorrect.
          - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
-    name: "404 - Invalid Model"
-  400: 
+  Invalid_property: 
     description: |-
         Invalid Property: The specified property names are not valid.
         
         This error response is returned due any one of the following reasons:
         - Invalid property name is entered with the `$select` parameter.
         - Invalid item type name is provided with the `$filter` parameter.
-    name: "400 - Invalid Property"
-  not_found: 
+  Not_found: 
     description: |-
         Not found.
         
         This error response is returned when you make an API request to retreive the schema or items of a published library but you have a typo in your API URL.
-    name: "404 - Not found"
-  requires_initialization: 
+  Requires_initialization: 
     description: "The requested model requires initialization.This error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
-    name: "404 - Requires Initialization"
-  500: 
+  Server_error: 
     description: |-
         Server Error: An internal server error occured. 
         
@@ -556,10 +552,8 @@ responses:
          - The API license key has not been uploaded to the server.
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
-    name: "500 - Server Error"
-  unauthorized: 
+  Unauthorized_IP_Mismatch: 
     description: |-
         Authorization has been denied for this request. User host address (IP) mismatch.
         
         This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
-    name: "400 - Unauthorized"
