@@ -509,12 +509,14 @@ paths:
           description: Invalid property or Unauthorized
           schema:
             properties:
-              InvalidProperty:
-                description: "Invalid property"
+                -
+                  name: "Invalid Property"
+                  description: "Invalid property"
                 - 
                   "$ref": "#/responses/Invalid_property"
-              Unauthorized:
-                description: "Unauthorized"
+                -
+                  name: "Unauthorized"
+                  description: "Unauthorized"
                 - 
                   "$ref": "#/responses/Unauthorized"
         401: 
