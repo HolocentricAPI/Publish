@@ -483,7 +483,11 @@ paths:
               - uuid
             type: object
         401: 
-          $ref: "#/responses/401"
+          description: Unauthorized or Authorization denied
+          schema:
+            oneOf:
+            - "$ref": "#/responses/Unauthorized"
+            - "$ref": "#/responses/authorization_denied"
         authorization_denied: 
           $ref: "#/responses/authorization_denied"
         400: 
@@ -501,14 +505,13 @@ paths:
       summary: "List items of a specified item type"
       tags: ["Items"]
 responses: 
-  401: 
+  Unauthorized: 
     description: |-
         Unauthorized: Access is denied due to invalid credentials.
         
         This error response is returned due to any one of the following reasons:
         - No access token provided in the header of the API request
         - The access token provided in the API request is incorrect.
-    name: "401 - Unauthorized"
   authorization_denied: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
@@ -517,7 +520,6 @@ responses:
          - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.
          - User is attempting to access a library that he/she does not have access.
          - Access token was generated for one server and now being used for accessing a model library on another server.
-    name: "401 - Authorization denied"
   invalid_model: 
     description: |-
         The requested model is invalid.
