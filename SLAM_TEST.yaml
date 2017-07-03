@@ -314,7 +314,8 @@ paths:
                   - _name: relatedDataReferences
                     _type: CollectionOfMetadataItemRelatedDataReference
                     __prefix: xs
-                  - complexType: 
+                  - 
+               complexType: 
                   sequence: 
                    element: 
                     _name: value
@@ -324,8 +325,8 @@ paths:
                   __prefix: xs
                  _name: aliases
                  __prefix: xs
-                - 
-             complexType: 
+                  -  
+               complexType: 
                   sequence: 
                    element: 
                     _name: value
