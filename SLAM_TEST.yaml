@@ -275,60 +275,60 @@ paths:
                element: 
                 - 
              _name: uuid
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: title
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: businessRule
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: category
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: dataQualityObjective
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: dataQualityPrinciple
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: description
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: effectiveEndDate
-                _type: "xs:date"
-                __prefix: xs
+                 _type: "xs:date"
+                 __prefix: xs
                 - 
              _name: effectiveStartDate
-                _type: "xs:date"
-                __prefix: xs
+                 _type: "xs:date"
+                 __prefix: xs
                 - 
              _name: guideForUse
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: name
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: uid
-                _type: "xs:string"
-                __prefix: xs
+                 _type: "xs:string"
+                 __prefix: xs
                 - 
              _name: registrationStatus
-                _type: CollectionOfRegistrationStatus
-                __prefix: xs
+                 _type: CollectionOfRegistrationStatus
+                 __prefix: xs
                 - 
              _name: relatedDataReferences
-                _type: CollectionOfMetadataItemRelatedDataReference
-                __prefix: xs
+                 _type: CollectionOfMetadataItemRelatedDataReference
+                 __prefix: xs
                 - 
              complexType: 
                   sequence: 
