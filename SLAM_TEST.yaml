@@ -318,11 +318,11 @@ paths:
                     __prefix: xs
                      complexType: 
                       sequence: 
-                        element: 
-                          _name: value
-                          _type: "xs:string"
-                          __prefix: xs
+                       element: 
+                        _name: value
+                        _type: "xs:string"
                         __prefix: xs
+                       __prefix: xs
                       __prefix: xs
                   -  
                complexType: 
