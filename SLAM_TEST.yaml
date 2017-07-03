@@ -270,20 +270,18 @@ paths:
              _name: Any
              __prefix: xs
             - sequence: 
-              choice: 
-              element: 
-            - _name: uuid
-              _type: "xs:string"
-              __prefix: xs
-            - _name: title
-                 _type: "xs:string"
-                 __prefix: xs
-                - 
-             _name: businessRule
-                 _type: "xs:string"
-                 __prefix: xs
-                - 
-             _name: category
+               choice: 
+                element: 
+                  - _name: uuid
+                     _type: "xs:string"
+                     __prefix: xs
+                  - _name: title
+                     _type: "xs:string"
+                     __prefix: xs
+                  - _name: businessRule
+                     _type: "xs:string"
+                     __prefix: xs
+            - _name: category
                  _type: "xs:string"
                  __prefix: xs
                 - 
