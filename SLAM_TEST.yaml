@@ -269,16 +269,13 @@ paths:
               __prefix: xs
              _name: Any
              __prefix: xs
-            - 
-             sequence: 
+            - sequence: 
               choice: 
-               element: 
-                - 
-             _name: uuid
-                 _type: "xs:string"
-                 __prefix: xs
-                - 
-             _name: title
+              element: 
+            - _name: uuid
+              _type: "xs:string"
+              __prefix: xs
+            - _name: title
                  _type: "xs:string"
                  __prefix: xs
                 - 
