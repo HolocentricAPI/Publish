@@ -6,7 +6,7 @@ produces:
 # consumes:
 #   - "application/xml"
 basePath: "/"
-host: {server_url}
+host: "{server_url}"
 info: 
   title: "Holocentric BMS3 API"
   version: 3.1.3
