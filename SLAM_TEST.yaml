@@ -557,6 +557,3 @@ responses:
         
         This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
     name: "400 - Unauthorized"
-schemes: 
-  - https
-swagger: "2.0"
