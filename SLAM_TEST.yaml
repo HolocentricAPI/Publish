@@ -3,8 +3,8 @@ schemes:
   - "https"
 produces:
   - "application/xml"
-consumes:
-  - "application/xml"
+# consumes:
+#   - "application/xml"
 basePath: "/"
 host: {server_url}
 info: 
@@ -117,8 +117,7 @@ parameters:
 paths: 
   /{server_url}/api/token: 
     post: 
-      consumes: 
-        - application/x-www-form-urlencoded
+     
       description: |-
           This API request is used to obtain an access token for authorization purposes. 
           Prior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.
