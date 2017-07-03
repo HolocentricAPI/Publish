@@ -273,8 +273,8 @@ paths:
                choice: 
                 element: 
                   - _name: uuid
-                     _type: "xs:string"
-                     __prefix: xs
+                    _type: "xs:string"
+                    __prefix: xs
                   - _name: title
                      _type: "xs:string"
                      __prefix: xs
