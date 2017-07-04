@@ -411,140 +411,140 @@ paths:
                    required: 
                     - 
       "-refUuid"
-                 required: 
+               required: 
                   - 
       PositionInstance
-                 aliases: 
+               aliases: 
                   type: object
                   properties: 
                    value: 
-                   type: string
-                   example: "Eft Kitschy"
+                    type: string
+                    example: "Eft Kitschy"
                   required: 
                    - 
       value
-                alternateName: 
-            type: object
-            properties: 
-             value: 
-              type: array
-              example: "[\"Lorem ipsum dolor sit amet\",\"consectetur adipiscing elit\",\"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\"]"
-              items: 
-               type: string
-               example: "Lorem ipsum dolor sit amet"
-            required: 
-             - 
-   value
-           businessRule: 
-            type: string
-            example: "This is the business rule..."
-           custodian: 
-            type: object
-            properties: 
-             PositionInstance: 
-              type: object
-              properties: 
-               "-refUuid": 
-                type: string
-                example: "{31375D4B-DCD5-47DD-8E39-FC06EF406954}"
-              required: 
-               - 
-   "-refUuid"
-            required: 
-             - 
-   PositionInstance
-           dataSetSpecifications: 
-            type: object
-            properties: 
-             DataSetSpecification: 
-              type: object
-              properties: 
-               "-refUuid": 
-                type: string
-                example: "{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}"
-              required: 
-               - 
-   "-refUuid"
-            required: 
-             - 
-   DataSetSpecification
-           description: 
-            type: string
-            example: "Description for the item."
-           effectiveStartDate: 
-            type: string
-            example: "1997-09-22T14:00:00.0000000Z"
-           name: 
-            type: string
-            example: "Business Rule - Eft Kitschy"
-           registrationStatus: 
-            type: object
-            properties: 
-             RegistrationStatus: 
-              type: object
-              properties: 
-               registrationAuthority: 
+               alternateName: 
                 type: object
                 properties: 
-                 RegistrationAuthority: 
+                 value: 
+                  type: array
+                  example: "[\"Lorem ipsum dolor sit amet\",\"consectetur adipiscing elit\",\"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua\"]"
+                  items: 
+                   type: string
+                   example: "Lorem ipsum dolor sit amet"
+                required: 
+                 - 
+      value
+               businessRule: 
+                type: string
+                example: "This is the business rule..."
+               custodian: 
+                type: object
+                properties: 
+                 PositionInstance: 
                   type: object
                   properties: 
                    "-refUuid": 
                     type: string
-                    example: "{0AB03B44-05DB-44FA-92E6-3F026644F094}"
-                  required: 
-                   - 
-   "-refUuid"
+                    example: "{31375D4B-DCD5-47DD-8E39-FC06EF406954}"
+                   required: 
+                    - 
+      "-refUuid"
                 required: 
                  - 
-   RegistrationAuthority
-               registrationDate: 
-                type: string
-                example: "2005-12-10T13:00:00.0000000Z"
-               registrationState: 
-                type: string
-                example: Standard
-               title: 
-                type: string
-                example: "Walrus Xenophobic, Standard 11/12/2005"
-              required: 
-               - 
-   registrationAuthority
-               - 
-   registrationDate
-               - 
-   registrationState
-               - 
-   title
-            required: 
-             - 
-   RegistrationStatus
-           relatedDataReferences: 
-            type: object
-            properties: 
-             MetadataItemRelatedDataReference: 
-              type: array
-              items: 
-               type: object
-               properties: 
-                notes: 
-                 type: string
-                 example: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur </p>"
-                otherEnd: 
+      PositionInstance
+                dataSetSpecifications: 
                  type: object
                  properties: 
-                  ValueDomain: 
+                  DataSetSpecification: 
                    type: object
                    properties: 
                     "-refUuid": 
                      type: string
-                     example: "{615B18EC-3A4F-4CB3-826A-D86B7F59926A}"
+                     example: "{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}"
                    required: 
                     - 
-   "-refUuid"
+      "-refUuid"
                  required: 
                   - 
-   ValueDomain
+      DataSetSpecification
+                 description: 
+                  type: string
+                  example: "Description for the item."
+                 effectiveStartDate: 
+                  type: string
+                  example: "1997-09-22T14:00:00.0000000Z"
+                 name: 
+                  type: string
+                  example: "Business Rule - Eft Kitschy"
+			     registrationStatus: 
+				  type: object
+				  properties: 
+				   RegistrationStatus: 
+				    type: object
+				    properties: 
+				   registrationAuthority: 
+				    type: object
+				    properties: 
+			       RegistrationAuthority: 
+				    type: object
+				    properties: 
+					 "-refUuid": 
+					  type: string
+					  example: "{0AB03B44-05DB-44FA-92E6-3F026644F094}"
+					 required: 
+					  - 
+      "-refUuid"
+                     required: 
+                      - 
+      RegistrationAuthority
+                     registrationDate: 
+                      type: string
+                      example: "2005-12-10T13:00:00.0000000Z"
+                     registrationState: 
+                      type: string
+                      example: Standard
+                     title: 
+                      type: string
+                      example: "Walrus Xenophobic, Standard 11/12/2005"
+                     required: 
+                      - 
+      registrationAuthority
+                      - 
+      registrationDate
+                      - 
+      registrationState
+                      - 
+      title
+                  required: 
+                   - 
+      RegistrationStatus
+                 relatedDataReferences: 
+                  type: object
+                  properties: 
+                   MetadataItemRelatedDataReference: 
+                    type: array
+                    items: 
+                     type: object
+                     properties: 
+                      notes: 
+                       type: string
+                       example: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur </p>"
+                      otherEnd: 
+                       type: object
+                       properties: 
+                        ValueDomain: 
+                         type: object
+                         properties: 
+                          "-refUuid": 
+                           type: string
+                           example: "{615B18EC-3A4F-4CB3-826A-D86B7F59926A}"
+                         required: 
+                          - 
+      "-refUuid"
+                 required: 
+                  - 
+      ValueDomain
                 otherEndKey: 
                  type: object
                  properties: 
@@ -556,10 +556,10 @@ paths:
                      example: "{615B18EC-3A4F-4CB3-826A-D86B7F59926A}"
                    required: 
                     - 
-   "-refUuid"
+      "-refUuid"
                  required: 
                   - 
-   ValueDomain
+      ValueDomain
                 relationshipType: 
                  type: string
                  example: Synonym
@@ -571,98 +571,98 @@ paths:
                  example: "Synonym, Dangerous Fennec"
                required: 
                 - 
-   notes
+      notes
                 - 
-   otherEnd
+      otherEnd
                 - 
-   otherEndKey
+      otherEndKey
                 - 
-   relationshipType
+      relationshipType
                 - 
-   relationshipUuid
+      relationshipUuid
                 - 
-   title
-            required: 
-             - 
-   MetadataItemRelatedDataReference
-           steward: 
-            type: object
-            properties: 
-             PositionInstance: 
-              type: object
-              properties: 
-               "-refUuid": 
-                type: string
-                example: "{7F5739ED-7982-4A08-AAA4-C84E9EFD0FB5}"
+      title
+                  required: 
+                   - 
+      MetadataItemRelatedDataReference
+                 steward: 
+                  type: object
+                  properties: 
+                   PositionInstance: 
+                    type: object
+                    properties: 
+                     "-refUuid": 
+                      type: string
+                      example: "{7F5739ED-7982-4A08-AAA4-C84E9EFD0FB5}"
+                    required: 
+                     - 
+      "-refUuid"
+                  required: 
+                   - 
+      PositionInstance
+                 title: 
+                  type: string
+                  example: "Business Rule - Eft Kitschy"
+                 uid: 
+                  type: string
+                  example: 10000727
+                 uuid: 
+                  type: string
+                  example: "{192D6750-859C-41C0-9F5C-433C2636BCA7}"
+                 validations: 
+                  type: object
+                  properties: 
+                   Validation: 
+                    type: object
+                    properties: 
+                     "-refUuid": 
+                      type: string
+                      example: "{1AB7B09C-C050-4A44-9FC8-39ADFF0C8827}"
+                    required: 
+                     - 
+      "-refUuid"
+                   required: 
+                    - 
+      Validation
+                 required: 
+                  - 
+      administrators
+                  - 
+      aliases
+                  - 
+      alternateName
+                  - 
+      businessRule
+                  - 
+      custodian
+                  - 
+      dataSetSpecifications
+                  - 
+      description
+                  - 
+      effectiveStartDate
+                  - 
+      name
+                  - 
+      registrationStatus
+                  - 
+      relatedDataReferences
+                  - 
+      steward
+                  - 
+      title
+                  - 
+      uid
+                  - 
+      uuid
+                  - 
+      validations
               required: 
                - 
-   "-refUuid"
-            required: 
-             - 
-   PositionInstance
-           title: 
-            type: string
-            example: "Business Rule - Eft Kitschy"
-           uid: 
-            type: string
-            example: 10000727
-           uuid: 
-            type: string
-            example: "{192D6750-859C-41C0-9F5C-433C2636BCA7}"
-           validations: 
-            type: object
-            properties: 
-             Validation: 
-              type: object
-              properties: 
-               "-refUuid": 
-                type: string
-                example: "{1AB7B09C-C050-4A44-9FC8-39ADFF0C8827}"
-              required: 
+      "-xmlns:xsi"
                - 
-   "-refUuid"
-            required: 
-             - 
-   Validation
-          required: 
-           - 
-   administrators
-           - 
-   aliases
-           - 
-   alternateName
-           - 
-   businessRule
-           - 
-   custodian
-           - 
-   dataSetSpecifications
-           - 
-   description
-           - 
-   effectiveStartDate
-           - 
-   name
-           - 
-   registrationStatus
-           - 
-   relatedDataReferences
-           - 
-   steward
-           - 
-   title
-           - 
-   uid
-           - 
-   uuid
-           - 
-   validations
-        required: 
-         - 
-   "-xmlns:xsi"
-         - 
-   "-xsi:schemaLocation"
-         - 
+      "-xsi:schemaLocation"
+               - 
    BusinessRule
       required: 
        - 
