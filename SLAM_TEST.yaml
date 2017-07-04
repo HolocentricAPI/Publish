@@ -426,7 +426,8 @@ paths:
                           value: 
                             type: "array"
                             example: "["Lorem ipsum dolor sit amet","consectetur adipiscing elit","sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"]"
-                            items: |-  
+                            items:
+			     value:
                               type: "string"
                               example: "Lorem ipsum dolor sit amet"
                         required: 
