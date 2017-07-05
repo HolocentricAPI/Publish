@@ -772,9 +772,9 @@ responses:
        type: object
        required: 
         - 
-       httpStatus
+          httpStatus
         - 
-       dateTime
+          dateTime
        properties: 
         citvId: 
          type: string
