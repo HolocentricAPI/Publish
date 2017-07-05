@@ -165,10 +165,6 @@ paths:
               token_type: 
                 example: Bearer
                 type: string
-            required: 
-              - access_token
-              - expires_in
-              - token_type
             type: object
         500: 
           $ref: "#/responses/Server_error"
