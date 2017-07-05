@@ -685,7 +685,7 @@ paths:
                       example: "{192D6755-854C-47D0-5R8C-433D2636BCA7}"
                       description: "Element 1 of the second item."
         400: 
-          description: Invalid property or Unauthorized
+          description: Invalid Property or Unauthorized
           schema:
             type: "object"
             properties: 
