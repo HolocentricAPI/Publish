@@ -507,8 +507,7 @@ paths:
             type: object
         400: 
           description: Invalid property or Unauthorized
-          schema:
-            oneOf:
+          properties:
             - "$ref": "#/responses/Invalid_property"
             - "$ref": "#/responses/Unauthorized"
         401: 
