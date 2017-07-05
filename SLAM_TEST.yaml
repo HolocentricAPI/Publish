@@ -262,24 +262,46 @@ paths:
         ? "200"
         : 
           description: OK
-          schema: 
+           schema: 
             type: "object"
             properties: 
               complexType A: 
                 type: "array"
-                description: "Name of the item type in the model library"
+                example: "BusinessRule"
+                description: "Name of the item type A in the model library."
                 items: 
                   type: "object"
                   properties: 
                     element 1: 
                       type: "string"
+                      example: "uuid"
+                      description: "Element 1 of item type A."
                     element 2: 
                       type: "string"
+                      example: "name"
+                      description: "Element 2 of item type A."
                   required: 
                   - "element 1"
                   - "element 2"
               complexType B: 
-                type: "string"
+                type: "array"
+                example: "GlossaryTerm"
+                description: "Name of item type B in the library."
+                items: 
+                  type: "object"
+                  properties: 
+                    element 1: 
+                      type: "string"
+                      example: "uuid"
+                      description: "Element 1 of item type B."
+                    element 2: 
+                      type: "string"
+                      example: "title"
+                      description: "Element 2 of item type B."
+                    element 3: 
+                      type: "string"
+                      example: "description"
+                      description: "Element 3 of item type B."
         400: 
           description: Invalid property or Unauthorized
           schema:
