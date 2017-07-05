@@ -464,7 +464,7 @@ paths:
           schema: 
             type: "object"
             properties: 
-              Item Type: 
+              BusinessRule: 
                 type: "array"
                 description: "Name of the item type of the queried item."
                 items: 
