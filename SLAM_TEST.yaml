@@ -160,9 +160,9 @@ paths:
               expires_in: 
                 description: "Token validity duration in milliseconds."
                 example: 28798
-                format: int32
                 type: integer
               token_type: 
+                description: `Bearer`
                 example: Bearer
                 type: string
             type: object
@@ -262,6 +262,20 @@ paths:
         ? "200"
         : 
           description: OK
+          schema: 
+           properties: 
+             complexType:
+               description: "Name of item type A in the library"
+               example: BusinessRule
+               type: string
+             element: 
+               - name: element1
+                 type: string
+               - name: element2
+                 type: string
+               - name: element3
+                 type: string
+           type: object
         400: 
           description: Invalid property or Unauthorized
           schema:
