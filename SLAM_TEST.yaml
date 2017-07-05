@@ -262,7 +262,7 @@ paths:
         ? "200"
         : 
           description: OK
-           schema: 
+          schema: 
             type: "object"
             properties: 
               complexType A: 
@@ -280,9 +280,6 @@ paths:
                       type: "string"
                       example: "name"
                       description: "Element 2 of item type A."
-                  required: 
-                  - "element 1"
-                  - "element 2"
               complexType B: 
                 type: "array"
                 example: "GlossaryTerm"
