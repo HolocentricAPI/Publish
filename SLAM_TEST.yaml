@@ -687,15 +687,18 @@ paths:
         400: 
           description: Invalid Property or Unauthorized
           schema:
-            properties: 
-              Invalid Property:
-                type: "string"
+            properties:
+              InvalidProperty:
+                name: Invalid Property
                 description:
                   $ref: "#/responses/Invalid_property"
+                type: string
               Unauthorized:
-                type: "string"
+                name: Invalid Property
                 description:
-                  $ref: "#/responses/Unauthorized"  
+                  $ref: "#/responses/Unauthorized"
+                type: string
+            type: object  
         401: 
           description: Unauthorized or Authorization denied
           schema:
