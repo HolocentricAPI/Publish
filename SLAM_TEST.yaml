@@ -262,7 +262,7 @@ paths:
         ? "200"
         : 
           description: OK
-           schema: 
+          schema: 
             type: "object"
             properties: 
               complexType A: 
@@ -280,9 +280,6 @@ paths:
                   - "element 2"
               complexType B: 
                 type: "string"
-            required: 
-            - "complexType A"
-            - "complexType B"
         400: 
           description: Invalid property or Unauthorized
           schema:
