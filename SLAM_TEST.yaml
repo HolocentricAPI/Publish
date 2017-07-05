@@ -267,7 +267,12 @@ paths:
             properties: 
               complexType A: 
                 type: "array"
-                example: "BusinessRule"
+                example: |- "BusinessRule[
+                {
+                  "element 1": "uuid",
+                  "element 2": "name"
+                }
+                ]"
                 description: "Name of the item type A in the model library."
                 items: 
                   type: "object"
@@ -282,7 +287,6 @@ paths:
                       description: "Element 2 of item type A."
               complexType B: 
                 type: "array"
-                example: "GlossaryTerm"
                 description: "Name of item type B in the library."
                 items: 
                   type: "object"
