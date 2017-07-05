@@ -519,6 +519,7 @@ paths:
                 description:
                   $ref: "#/responses/Unauthorized"
                 type: string
+            type: object    
         401: 
           description: Unauthorized or Authorization denied
           schema:
