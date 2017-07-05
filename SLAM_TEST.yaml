@@ -699,7 +699,8 @@ paths:
                   $ref: "#/responses/Unauthorized"  
         401: 
           description: Unauthorized or Authorization denied
-          $ref: "#/responses/UnrecognizedQuoteOrGroupId"
+          schema:
+            $ref: "#/responses/UnrecognizedQuoteOrGroupId"
         404: 
           description: Invalid model or Requires initialization
           schema:
