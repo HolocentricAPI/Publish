@@ -763,34 +763,34 @@ responses:
         Authorization has been denied for this request. User host address (IP) mismatch.
         
         This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
-  UnrecognizedQuoteOrGroupId: 
-     required: 
-      - 
-       error
-     properties: 
-      error: 
-       type: object
-       required: 
-        - 
-          httpStatus
-        - 
-          dateTime
-       properties: 
-        citvId: 
-         type: string
-         description: "The citvId that was specified in the request in the case of a valid citvId but igroupId."
-        httpStatus: 
-         type: integer
-         description: "This will be 400 for this type of error"
-        dateTime: 
-         type: string
-         description: "ISO format timestamp for request"
-        serviceStatusCode: 
-         type: string
-         description: "Numeric status code returned by third party service (e.g. 1106) for an invalid citvId"
-        serviceMessage: 
-         type: string
-         description: "Message from third party service for an invalid citvId which translates to their risk ID"
-        validation: 
-         type: string
-         description: "Message indicating the unrecognized groupId in the case of a valid citvId but igroupId"
+  UnrecognizedQuoteOrGroupId:
+    required:
+      -
+        error
+    properties:
+      error:
+        type: object
+        required: 
+          -
+            httpStatus
+          -
+            dateTime
+        properties:
+          citvId: 
+            type: string
+            description: "The citvId that was specified in the request in the case of a valid citvId but igroupId."
+          httpStatus: 
+            type: integer
+            description: "This will be 400 for this type of error"
+          dateTime: 
+            type: string
+            description: "ISO format timestamp for request"
+          serviceStatusCode: 
+            type: string
+            description: "Numeric status code returned by third party service (e.g. 1106) for an invalid citvId"
+          serviceMessage: 
+            type: string
+            description: "Message from third party service for an invalid citvId which translates to their risk ID"
+          validation: 
+            type: string
+            description: "Message indicating the unrecognized groupId in the case of a valid citvId but igroupId"
