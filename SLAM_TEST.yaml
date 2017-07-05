@@ -507,13 +507,14 @@ paths:
             type: object
         400: 
           description: Invalid property or Unauthorized
-          properties:
-            InvalidProperty:
-              name: Invalid Property
-              description: "$ref": "#/responses/Invalid_property"
-            Unauthorized:
-              name: Invalid Property
-              description: "$ref": "#/responses/Unauthorized"
+          schema:
+            properties:
+              InvalidProperty:
+                name: Invalid Property
+                description: "$ref": "#/responses/Invalid_property"
+              Unauthorized:
+                name: Invalid Property
+                description: "$ref": "#/responses/Unauthorized"
         401: 
           description: Unauthorized or Authorization denied
           schema:
