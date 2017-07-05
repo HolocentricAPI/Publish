@@ -152,23 +152,23 @@ paths:
         : 
           description: "OK"
           schema: 
+            type: "object"
             properties: 
               access_token: 
-                example: mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS
-                type: string
-              expires_in: 
-                description: "Token validity duration in milliseconds."
-                example: 28798
-                format: int32
-                type: integer
+                type: "string"
+                example: "mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS"
               token_type: 
-                example: Bearer
-                type: string
+                type: "string"
+                example: "Bearer"
+              expires_in: 
+                type: "integer"
+                format: "int32"
+                example: "28799"
+                description: "Token validity duration in milliseconds."
             required: 
-              - access_token
-              - expires_in
-              - token_type
-            type: object
+            - "access_token"
+            - "expires_in"
+            - "token_type"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Obtain access token"
