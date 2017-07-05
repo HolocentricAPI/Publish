@@ -278,8 +278,10 @@ paths:
                     description: "Element 1 of item type A"
                    element2
                     type: string
+                    description: ""
                    element3
                     type: string
+                    description: ""
              type: object
         400: 
           description: Invalid property or Unauthorized
