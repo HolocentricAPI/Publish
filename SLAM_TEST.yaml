@@ -208,6 +208,27 @@ paths:
         ? "200"
         : 
           description: "OK"
+          schema: 
+            type: "object"
+            properties: 
+              Item Type: 
+                type: "array"
+                description: "Name of the item type of the queried item."
+                items: 
+                  type: "object"
+                  properties: 
+                    description: 
+                      type: "string"
+                      example: "Details on how to store items."
+                      description: "Element 3 of the queried item"
+                    name: 
+                      type: "string"
+                      example: "Business Rule - Storage"
+                      description: "Element 2 of the queried item."
+                    uuid: 
+                      type: "string"
+                      example: "{192B6753-859C-41C0-7F5C-433C2636BCA7}"
+                      description: "Element 1 of the queried item."
         400: 
           description: Invalid property or Unauthorized
           schema:
@@ -365,6 +386,27 @@ paths:
         ? "200"
         : 
           description: OK
+          schema: 
+            type: "object"
+            properties: 
+              Business Rule 1: 
+                type: "array"
+                description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
+                items: 
+                  type: "object"
+                  properties: 
+                    description: 
+                      type: "string"
+                      example: "Information on how to store items."
+                      description: "Element 3 of the first item."
+                    name: 
+                      type: "string"
+                      example: "Business Rule - Storage"
+                      description: "Element 2 of the first item."
+                    uuid: 
+                      type: "string"
+                      example: "{192D6755-859C-47C0-9F8C-433D2636BCA7}"
+                      description: "Element 1 of the first item."
         400: 
           description: Invalid property or Unauthorized
           schema:
@@ -418,7 +460,28 @@ paths:
       responses: 
         ? "200"
         : 
-          description: "OK" 
+          description: "OK"
+          schema: 
+            type: "object"
+            properties: 
+              Item Type: 
+                type: "array"
+                description: "Name of the item type of the queried item."
+                items: 
+                  type: "object"
+                  properties: 
+                    description: 
+                      type: "string"
+                      example: "Details on how to store items."
+                      description: "Element 3 of the queried item"
+                    name: 
+                      type: "string"
+                      example: "Business Rule - Storage"
+                      description: "Element 2 of the queried item."
+                    uuid: 
+                      type: "string"
+                      example: "{192B6753-859C-41C0-7F5C-433C2636BCA7}"
+                      description: "Element 1 of the queried item."
         400: 
           description: Invalid property or Unauthorized
           schema:
