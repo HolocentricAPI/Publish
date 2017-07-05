@@ -508,8 +508,12 @@ paths:
         400: 
           description: Invalid property or Unauthorized
           properties:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+            InvalidProperty:
+              name: Invalid Property
+              description: "$ref": "#/responses/Invalid_property"
+            Unauthorized:
+              name: Invalid Property
+              description: "$ref": "#/responses/Unauthorized"
         401: 
           description: Unauthorized or Authorization denied
           schema:
