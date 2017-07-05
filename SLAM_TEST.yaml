@@ -263,23 +263,26 @@ paths:
         : 
           description: OK
            schema: 
-             type: "object"
-             properties: 
-               complexType A: 
-                 type: "array"
-                 description: "Name of the item type in the model library"
-                 items: 
-                   type: "object"
-                   properties: 
-                     sequence: 
-                       type: "array"
-                       items: 
-                         type: "object"
-                         properties: 
-                           element 1: 
-                             type: "string"
-                           element 2: 
-                             type: "string"
+            type: "object"
+            properties: 
+              complexType A: 
+                type: "array"
+                description: "Name of the item type in the model library"
+                items: 
+                  type: "object"
+                  properties: 
+                    element 1: 
+                      type: "string"
+                    element 2: 
+                      type: "string"
+                  required: 
+                  - "element 1"
+                  - "element 2"
+              complexType B: 
+                type: "string"
+            required: 
+            - "complexType A"
+            - "complexType B"
         400: 
           description: Invalid property or Unauthorized
           schema:
