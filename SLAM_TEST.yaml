@@ -276,10 +276,10 @@ paths:
                    element1:
                     type: string
                     description: "Element 1 of item type A"
-                   element2
+                   element2:
                     type: string
                     description: ""
-                   element3
+                   element3:
                     type: string
                     description: ""
              type: object
