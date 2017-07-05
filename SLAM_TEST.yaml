@@ -229,8 +229,7 @@ paths:
             dataQualityPrinciple: "Lorem ipsum"
             relatedDataReferences: 
              MetadataItemRelatedDataReference: 
-              - 
-             relationshipUuid: "{7C6C274F-9BF5-4DA2-B542-1311797FB9A8}"
+              -relationshipUuid: "{7C6C274F-9BF5-4DA2-B542-1311797FB9A8}"
                otherEnd: 
                 Property: 
                  _refUuid: "{5BE469B8-32EB-4E5A-8025-3C3098936AF6}"
