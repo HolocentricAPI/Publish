@@ -692,7 +692,8 @@ paths:
               Invalid Property:
                 type: "string"
                 schema:
-                  $ref: "#/responses/Invalid_property"
+                  description: 
+                    $ref: "#/responses/Invalid_property"
               Unauthorized:
                 type: "string"
                 schema:
