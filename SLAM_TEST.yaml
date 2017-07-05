@@ -162,7 +162,7 @@ paths:
                 example: 28798
                 type: integer
               token_type: 
-                description: `Bearer`
+                description: "`Bearer`"
                 example: Bearer
                 type: string
             type: object
