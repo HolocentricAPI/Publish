@@ -691,11 +691,11 @@ paths:
             properties: 
               Invalid Property:
                 type: "string"
-                description:
+                schema:
                   $ref: "#/responses/Invalid_property"
               Unauthorized:
                 type: "string"
-                description:
+                schema:
                   $ref: "#/responses/Unauthorized"  
         401: 
           description: Unauthorized or Authorization denied
