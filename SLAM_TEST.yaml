@@ -269,12 +269,13 @@ paths:
                example: BusinessRule
                type: string
              element: 
-               - name: element1
-                 type: string
-               - name: element2
-                 type: string
-               - name: element3
-                 type: string
+                 element1:
+                  type: string
+                  description: "Element 1 of item type A"
+                 element2
+                  type: string
+                 element3
+                  type: string
            type: object
         400: 
           description: Invalid property or Unauthorized
