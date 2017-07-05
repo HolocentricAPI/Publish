@@ -262,26 +262,24 @@ paths:
         ? "200"
         : 
           description: OK
-          schema: 
+           schema: 
             type: "object"
             properties: 
-              sequence: 
+              complexType A: 
                 type: "array"
+                description: "Name of the item type in the model library"
                 items: 
                   type: "object"
                   properties: 
-                    element 1: 
-                      type: string
-                      example: uuid
-                      description: "Element1 of item type A"
-                    element 2: 
-                      type: string
-                      example: name
-                      description: "Element 2 of item type A"
-              complexType A: 
-                type: string
-                example: BusinessRule
-                description: "Name of the item type in the model library"
+                    sequence: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          element 1: 
+                            type: "string"
+                          element 2: 
+                            type: "string"
         400: 
           description: Invalid property or Unauthorized
           schema:
