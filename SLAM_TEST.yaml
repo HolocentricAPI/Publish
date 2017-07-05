@@ -278,11 +278,10 @@ paths:
                     description: "Element 1 of item type A"
                    element2:
                     type: string
-                    description: ""
+                    description: "Element 2 of item type A"
                    element3:
                     type: string
-                    description: ""
-             type: object
+                    description: "Element 3 of item type A"
         400: 
           description: Invalid property or Unauthorized
           schema:
