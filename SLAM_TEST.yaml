@@ -271,20 +271,17 @@ paths:
                   type: "object"
                   properties: 
                     element 1: 
-                      type: "string"
-                      example: "uuid"
+                      type: string
+                      example: uuid
                       description: "Element1 of item type A"
                     element 2: 
-                      type: "string"
-                      example: "name"
+                      type: string
+                      example: name
                       description: "Element 2 of item type A"
               complexType A: 
-                type: "string"
-                example: "BusinessRule"
+                type: string
+                example: BusinessRule
                 description: "Name of the item type in the model library"
-            required: 
-            - "complexType A"
-            - "sequence"
         400: 
           description: Invalid property or Unauthorized
           schema:
