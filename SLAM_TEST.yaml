@@ -211,6 +211,121 @@ paths:
         ? "200"
         : 
           description: "OK"
+          items: 
+           BusinessRule: 
+            uuid: "{22B3FA59-B836-4AA6-8300-B5EAB16711B5}"
+            title: "Business Rule - Zebra Froody"
+            uid: 10000730
+            name: "Business Rule - Zebra Froody"
+            aliases: 
+             value: "Zebra Froody"
+            alternateName: ""
+            dhhsStatus: Retired
+            dhhsStatusDate: "2017-01-18T13:00:00.0000000Z"
+            category: "DHHS Specification"
+            description: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+            effectiveEndDate: "1997-10-05T14:00:00.0000000Z"
+            guideForUse: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>"
+            dataQualityPrinciple: "Lorem ipsum"
+            relatedDataReferences: 
+             MetadataItemRelatedDataReference: 
+              - 
+             relationshipUuid: "{7C6C274F-9BF5-4DA2-B542-1311797FB9A8}"
+               otherEnd: 
+                Property: 
+                 _refUuid: "{5BE469B8-32EB-4E5A-8025-3C3098936AF6}"
+               notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat </p>"
+               relationshipType: "Implemented By"
+               otherEndKey: 
+                Property: 
+                 _refUuid: "{5BE469B8-32EB-4E5A-8025-3C3098936AF6}"
+               title: "Implemented By, Gnarwhal Xenial"
+              - 
+             relationshipUuid: "{63D4073A-54A6-4AC9-9B70-FF3A5FBEA4AD}"
+               otherEnd: 
+                DataElement: 
+                 _refUuid: "{A1D43215-22ED-4136-A218-383BE3FE1450}"
+               notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>"
+               relationshipType: "Derived From"
+               otherEndKey: 
+                DataElement: 
+                  _refUuid: "{A1D43215-22ED-4136-A218-383BE3FE1450}"
+                title: "Derived From, Veteran Jaybird"
+              -  
+             relationshipUuid: "{74AB8792-C469-4CDD-8407-152FB981826F}"
+               otherEnd: 
+                ObjectClass: 
+                 _refUuid: "{7A258363-0E15-4492-BE71-04876463E2F3}"
+               notes: ""
+               relationshipType: "Source Of"
+               otherEndKey: 
+                ObjectClass: 
+                 _refUuid: "{7A258363-0E15-4492-BE71-04876463E2F3}"
+                title: "Source Of, Pika Clever"
+              - 
+             relationshipUuid: "{54047F8C-BEC4-44DB-ADAF-2FE77B093118}"
+               otherEnd: 
+                Property: 
+                 _refUuid: "{9346D77D-19B1-42DF-BBB8-8A11FD73B6D0}"
+               notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua </p>"
+               relationshipType: "Derived From"
+               otherEndKey: 
+                Property: 
+                 _refUuid: "{9346D77D-19B1-42DF-BBB8-8A11FD73B6D0}"
+                title: "Derived From, Xenarthra Igneous"
+              - 
+             relationshipUuid: "{153B4C64-4DC6-4C1E-96C0-80E1A144EA58}"
+               otherEnd: 
+                BusinessRule: 
+                 _refUuid: "{5118D8CD-9BB3-4E93-9805-16F78BA31A84}"
+               notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat </p>"
+               relationshipType: Variant
+               otherEndKey: 
+                BusinessRule: 
+                 _refUuid: "{5118D8CD-9BB3-4E93-9805-16F78BA31A84}"
+               title: "Variant, Rooster Leftist"
+              - 
+             relationshipUuid: "{C04A4769-3D6B-4C76-B2EB-A862EBA8BD8B}"
+               otherEnd: 
+                DataElementConcept: 
+                 _refUuid: "{E5BD50F6-E6CA-4D12-918C-6C20A8C4F8B1}"
+                notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur </p>"
+                relationshipType: "Implemented By"
+                otherEndKey: 
+                DataElementConcept: 
+                 _refUuid: "{E5BD50F6-E6CA-4D12-918C-6C20A8C4F8B1}"
+                title: "Implemented By, Jabbering Gator"
+              - 
+             relationshipUuid: "{CB6F10D5-09F2-4CD4-81ED-6B3BF6587C07}"
+               otherEnd: 
+                DataElement: 
+                 _refUuid: "{467DD7E3-4817-4392-9ADC-9AF16C4483C4}"
+                notes: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur </p>"
+                relationshipType: Duplicate
+                otherEndKey: 
+                DataElement: 
+                 _refUuid: "{467DD7E3-4817-4392-9ADC-9AF16C4483C4}"
+                title: "Duplicate, Untapped Jaybird"
+            steward: 
+             PositionInstance: 
+              _refUuid: "{A6E5FBDE-CFA1-4EDB-9DAF-2BE09C76916B}"
+            custodian: 
+             PositionInstance: 
+              _refUuid: "{7B2662AF-CA34-440A-AE6E-F81A34258F47}"
+            keyContact: 
+             PositionInstance: 
+              _refUuid: "{6E2A6095-FEB5-42E4-B251-3E38353750A4}"
+            administrators: 
+             PositionInstance: 
+              _refUuid: "{31375D4B-DCD5-47DD-8E39-FC06EF406954}"
+            dataSetSpecifications: 
+             DataSetSpecification: 
+              _refUuid: "{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}"
+            glossaryItems: 
+             GlossaryItemTerm: 
+              _refUuid: "{522049A4-AAE1-4B95-969D-A32C049175F3}"
+           "_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
+           "_xsi:schemaLocation": "https://uat-313.holocentric.com/api/{A20E940A-A80B-4828-82E8-BA67228D44B8}/items/schema"
         400: 
           description: Invalid property or Unauthorized
           schema:
