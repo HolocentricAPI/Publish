@@ -687,7 +687,7 @@ paths:
         400: 
           description: Invalid Property or Unauthorized
           schema:
-            type: "string"
+            type: "array"
             properties: 
               Invalid Property:
                 type: "string"
