@@ -690,11 +690,11 @@ paths:
             type: "object"
             properties: 
               Invalid Property:
-                type: "object"
+                type: "string"
                 description:
                   $ref: "#/responses/Invalid_property"
               Unauthorized:
-                type: "object"
+                type: "string"
                 description:
                   $ref: "#/responses/Unauthorized"  
         401: 
