@@ -693,12 +693,12 @@ paths:
                 name: Invalid Property
                 description:
                   $ref: "#/responses/Invalid_property"
-                type: string
+                type: ""string"
               Unauthorized:
                 name: Invalid Property
                 description:
                   $ref: "#/responses/Unauthorized"
-                type: string 
+                type: "string" 
         401: 
           description: Unauthorized or Authorization denied
           schema:
