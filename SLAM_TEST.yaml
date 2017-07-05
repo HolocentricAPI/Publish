@@ -267,6 +267,7 @@ paths:
             properties: 
               complexType A: 
                 type: "array"
+                example: "BusinessRule"
                 description: "Name of the item type A in the model library."
                 items: 
                   type: "object"
