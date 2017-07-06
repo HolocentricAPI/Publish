@@ -761,9 +761,9 @@ responses:
       Unauthorized:
         type: "string"
         description: |-
-        Authorization has been denied for this request. User host address (IP) mismatch.
+            Authorization has been denied for this request. User host address (IP) mismatch.
         
-        This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
+            This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
   UnrecognizedQuoteOrGroupId:
     required:
       - error
