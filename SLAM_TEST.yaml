@@ -689,7 +689,8 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/responses/Invalid_property"
+              - $ref: "#/responses/Invalid_property"
+              - $ref: "#/responses/Invalid_property"
         401: 
           description: Unauthorized or Authorization denied
           schema:
@@ -700,7 +701,7 @@ paths:
           schema:
             oneOf:
             - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            - "$ref": "#/responses/Unauthorized_IP_Mismatch"
         500: 
           $ref: "#/responses/Server_error"
       summary: "List items of a specified item type"
