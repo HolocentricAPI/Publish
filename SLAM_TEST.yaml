@@ -698,10 +698,16 @@ paths:
                   type: "string"
                   $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Unauthorized or Authorization denied
+          description: Invalid Property or Unauthorized
           schema:
-            type: "array"
-            $ref: "#/responses/UnrecognizedQuoteOrGroupId"
+            # type: "object"
+            properties:
+              Invalid Property:
+                type: "string"
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                type: "string"
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         404: 
           description: Invalid model or Requires initialization
           schema:
