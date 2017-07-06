@@ -703,6 +703,7 @@ paths:
             # type: "object"
             properties:
               Invalid Property:
+                name: Invalid
                 type: "string"
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
