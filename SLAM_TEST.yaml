@@ -689,8 +689,8 @@ paths:
           schema:
             type: "array"
             items:
-              - $ref: "#/responses/Invalid_property"
-              - $ref: "#/responses/Invalid_property"
+              $ref: "#/responses/Invalid_property"
+              $ref: "#/responses/Invalid_property"
         401: 
           description: Unauthorized or Authorization denied
           schema:
