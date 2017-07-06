@@ -690,7 +690,7 @@ paths:
             type: "array"
             items:
               - $ref: "#/responses/Invalid_property"
-              - $ref: "#/responses/Invalid_property"
+              - $ref: "#/responses/ Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
