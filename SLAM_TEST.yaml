@@ -689,6 +689,7 @@ paths:
           schema:
             type: "array"
             $ref: "#/responses/Invalid_property"
+            $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
@@ -756,7 +757,10 @@ responses:
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
   Unauthorized_IP_Mismatch: 
-    description: |-
+    properties:
+      Unauthorized:
+        type: "string"
+        description: |-
         Authorization has been denied for this request. User host address (IP) mismatch.
         
         This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
