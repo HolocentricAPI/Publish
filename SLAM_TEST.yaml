@@ -688,8 +688,8 @@ paths:
           description: Invalid Property or Unauthorized
           schema:
             type: "array"
-            $ref: "#/responses/Invalid_property"
-            $ref: "#/responses/Unauthorized_IP_Mismatch"
+            - $ref: "#/responses/Invalid_property"
+            - $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
