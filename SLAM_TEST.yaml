@@ -688,8 +688,7 @@ paths:
                   - Invalid property name is entered with the `$select` parameter.
                   - Invalid item type name is provided with the `$filter` parameter.
                 properties: 
-                  description:
-                    example: "Information on how to store items."
+                  example: "Information on how to store items."
               Unauthorized:
                 description: |-
                   Unauthorized: Access is denied due to invalid credentials.
