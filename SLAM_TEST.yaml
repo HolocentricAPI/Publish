@@ -687,7 +687,9 @@ paths:
                   This error response is returned due to any one of the following reasons:
                   - Invalid property name is entered with the `$select` parameter.
                   - Invalid item type name is provided with the `$filter` parameter.
-                example: "Information on how to store items."
+                properties: 
+                  description:
+                    example: "Information on how to store items."
               Unauthorized:
                 description: |-
                   Unauthorized: Access is denied due to invalid credentials.
@@ -695,7 +697,9 @@ paths:
                   This error response is returned due to any one of the following reasons:
                   - No access token provided in the header of the API request
                   - The access token provided in the API request is incorrect.
-                example: "Information on how to transport items."
+                properties: 
+                  description:
+                    example: "Information on how to transport items."
         401: 
           description: Invalid Property or Unauthorized
           schema:
