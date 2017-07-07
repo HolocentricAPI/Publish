@@ -681,12 +681,11 @@ paths:
           schema:
             properties:
               Invalid Property:
-                # type: "string"
                 properties:
                   $ref: "#/responses/Invalid_property"
               Unauthorized:
-                type: "string"
-                $ref: "#/responses/Unauthorized_IP_Mismatch"
+                properties:
+                  $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Invalid Property or Unauthorized
           schema:
