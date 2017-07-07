@@ -704,8 +704,10 @@ paths:
           description: Invalid Property or Unauthorized
           schema:
             properties:
-              $ref: "#/responses/Invalid_property"
-              $ref: "#/responses/Unauthorized_IP_Mismatch"
+              Invalid Property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         404: 
           description: Invalid model or Requires initialization
           schema:
@@ -718,16 +720,15 @@ paths:
       tags: ["Items"]
 responses: 
   Unauthorized: 
-    Unauthorized:
-      description: |-
-        Unauthorized: Access is denied due to invalid credentials.
+    description: |-
+      Unauthorized: Access is denied due to invalid credentials.
 
-        This error response is returned due to any one of the following reasons:
-        - No access token provided in the header of the API request
-        - The access token provided in the API request is incorrect.
-      properties: 
-        description:
-          example: "Information on how to transport items."
+      This error response is returned due to any one of the following reasons:
+      - No access token provided in the header of the API request
+      - The access token provided in the API request is incorrect.
+    properties: 
+      description:
+        example: "Information on how to transport items."
   Authorization_denied: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
@@ -747,16 +748,15 @@ responses:
          - The model library or the specific version UUID provided is incorrect.
          - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
   Invalid_property:
-    Invalid Property:
-      description: |-
-        The specified property names are not valid.
+    description: |-
+      The specified property names are not valid.
 
-        This error response is returned due to any one of the following reasons:
-        - Invalid property name is entered with the `$select` parameter.
-        - Invalid item type name is provided with the `$filter` parameter.
-      properties: 
-        description:
-          example: "Information on how to store items."
+      This error response is returned due to any one of the following reasons:
+      - Invalid property name is entered with the `$select` parameter.
+      - Invalid item type name is provided with the `$filter` parameter.
+    properties: 
+      description:
+        example: "Information on how to store items."
   Not_found: 
     description: |-
         Not found.
