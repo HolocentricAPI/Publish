@@ -681,16 +681,21 @@ paths:
           schema:
             properties:
               Invalid Property:
-                description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
+                description: |-
+                  The specified property names are not valid.
+
+                  This error response is returned due to any one of the following reasons:
+                  - Invalid property name is entered with the `$select` parameter.
+                  - Invalid item type name is provided with the `$filter` parameter.
                 properties: 
-                  description: 
+                  example: 
                     type: "string"
                     example: "Information on how to store items."
                     description: "Element 3 of the first item."
               Unauthorized:
                 description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
                 properties: 
-                  description: 
+                  example: 
                     type: "string"
                     example: "Information on how to transport items."
                     description: "Element 3 of the second item."
