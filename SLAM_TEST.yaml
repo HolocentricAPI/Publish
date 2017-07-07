@@ -651,7 +651,7 @@ paths:
               Business Rule 1: 
                # type: "array"
                 description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
-                items: 
+               # items: 
                  # type: "object"
                   properties: 
                     description: 
@@ -669,7 +669,7 @@ paths:
               Business Rule 2: 
                # type: "array"
                 description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
-                items: 
+               # items: 
                  # type: "object"
                   properties: 
                     description: 
