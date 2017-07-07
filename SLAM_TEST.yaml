@@ -707,7 +707,7 @@ paths:
               Invalid Property:
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
-                $ref: "#/responses/Unauthorized_IP_Mismatch"
+                $ref: "#/responses/Unauthorized"
         404: 
           description: Invalid model or Requires initialization
           schema:
