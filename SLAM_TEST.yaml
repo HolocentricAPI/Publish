@@ -733,13 +733,15 @@ responses:
          - The model library or the specific version UUID provided is incorrect.
          - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
   Invalid_property:
-    description: |-
-        Invalid Property: The specified property names are not valid.
+    description:
+      type: "string"
+      description: |-
+          Invalid Property: The specified property names are not valid.
 
-        This error response is returned due any one of the following reasons:
-        - Invalid property name is entered with the `$select` parameter.
-        - Invalid item type name is provided with the `$filter` parameter.
-    example: "Example text"
+          This error response is returned due any one of the following reasons:
+          - Invalid property name is entered with the `$select` parameter.
+          - Invalid item type name is provided with the `$filter` parameter.
+      example: "Example text"
   Not_found: 
     description: |-
         Not found.
@@ -756,10 +758,12 @@ responses:
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
   Unauthorized_IP_Mismatch:
-    description: |-
-        Authorization has been denied for this request. User host address (IP) mismatch.
+    description:
+      type: "string"
+      description: |-
+          Authorization has been denied for this request. User host address (IP) mismatch.
 
-        This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
+          This error response is returned when the access token was generated using one IP address and now being used for invoking an API request from a different IP address.
   UnrecognizedQuoteOrGroupId:
     required:
       - error
