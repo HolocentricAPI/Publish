@@ -681,25 +681,9 @@ paths:
           schema:
             properties:
               Invalid Property:
-                description: |-
-                  The specified property names are not valid.
-
-                  This error response is returned due to any one of the following reasons:
-                  - Invalid property name is entered with the `$select` parameter.
-                  - Invalid item type name is provided with the `$filter` parameter.
-                properties: 
-                  description:
-                    example: "Information on how to store items."
+                $ref: "#/responses/Invalid_property"
               Unauthorized:
-                description: |-
-                  Unauthorized: Access is denied due to invalid credentials.
-
-                  This error response is returned due to any one of the following reasons:
-                  - No access token provided in the header of the API request
-                  - The access token provided in the API request is incorrect.
-                properties: 
-                  description:
-                    example: "Information on how to transport items."
+                $ref: "#/responses/Unauthorized"
         401: 
           description: Invalid Property or Unauthorized
           schema:
@@ -709,11 +693,13 @@ paths:
               Unauthorized:
                 $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid Property or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Unauthorized_IP_Mismatch"
+            properties:
+              Invalid Property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         500: 
           $ref: "#/responses/Server_error"
       summary: "List items of a specified item type"
