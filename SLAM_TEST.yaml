@@ -692,10 +692,10 @@ paths:
             properties:
               Invalid Property:
                 type: "string"
-                $ref: "#/responses/Invalid_property"
+                # $ref: "#/responses/Invalid_property"
               Unauthorized:
                 type: "string"
-                $ref: "#/responses/Unauthorized_IP_Mismatch"
+                # $ref: "#/responses/Unauthorized_IP_Mismatch"
         404: 
           description: Invalid model or Requires initialization
           schema:
