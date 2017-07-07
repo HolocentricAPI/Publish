@@ -700,10 +700,8 @@ paths:
         401: 
           description: Invalid Property or Unauthorized
           schema:
-            # type: "object"
             properties:
               Invalid Property:
-                name: Invalid
                 type: "string"
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
@@ -749,6 +747,7 @@ responses:
     properties:
       Invalid Property:
         type: "string"
+        name: "Invalid Property"
         description: |-
             Invalid Property: The specified property names are not valid.
         
