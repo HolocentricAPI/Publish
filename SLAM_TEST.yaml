@@ -687,18 +687,15 @@ paths:
                   This error response is returned due to any one of the following reasons:
                   - Invalid property name is entered with the `$select` parameter.
                   - Invalid item type name is provided with the `$filter` parameter.
-                properties: 
-                  example: 
-                    type: "string"
-                    example: "Information on how to store items."
-                    description: "Element 3 of the first item."
+                example: "Information on how to store items."
               Unauthorized:
-                description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
-                properties: 
-                  example: 
-                    type: "string"
-                    example: "Information on how to transport items."
-                    description: "Element 3 of the second item."
+                description: |-
+                  Unauthorized: Access is denied due to invalid credentials.
+
+                  This error response is returned due to any one of the following reasons:
+                  - No access token provided in the header of the API request
+                  - The access token provided in the API request is incorrect.
+                example: "Information on how to transport items."
         401: 
           description: Invalid Property or Unauthorized
           schema:
