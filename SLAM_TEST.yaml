@@ -681,8 +681,9 @@ paths:
           schema:
             properties:
               Invalid Property:
-                type: "string"
-                $ref: "#/responses/Invalid_property"
+                # type: "string"
+                properties:
+                  $ref: "#/responses/Invalid_property"
               Unauthorized:
                 type: "string"
                 $ref: "#/responses/Unauthorized_IP_Mismatch"
