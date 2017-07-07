@@ -642,17 +642,12 @@ paths:
       produces: 
         - application/xml
       responses: 
-        ? "200"
-        : 
+        200: 
           description: OK
-          schema: 
-           # type: "object"
+          schema:
             properties: 
-              Business Rule 1: 
-               # type: "array"
+              Business Rule 1:
                 description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
-               # items: 
-                 # type: "object"
                 properties: 
                   description: 
                     type: "string"
@@ -666,11 +661,8 @@ paths:
                     type: "string"
                     example: "{192D6755-859C-47C0-9F8C-433D2636BCA7}"
                     description: "Element 1 of the first item."
-              Business Rule 2: 
-               # type: "array"
+              Business Rule 2:
                 description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
-               # items: 
-                 # type: "object"
                 properties: 
                   description: 
                     type: "string"
