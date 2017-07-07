@@ -681,9 +681,19 @@ paths:
           schema:
             properties:
               Invalid Property:
-                $ref: "#/responses/Invalid_property"
+                description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
+                properties: 
+                  description: 
+                    type: "string"
+                    example: "Information on how to store items."
+                    description: "Element 3 of the first item."
               Unauthorized:
-                $ref: "#/responses/Unauthorized_IP_Mismatch"
+                description: "Name of the item type. This section contains metadata relating to first item of the specified item type. The response will contain many arrays similar to this based on the items that are availble for the queried item type."
+                properties: 
+                  description: 
+                    type: "string"
+                    example: "Information on how to transport items."
+                    description: "Element 3 of the second item."
         401: 
           description: Invalid Property or Unauthorized
           schema:
