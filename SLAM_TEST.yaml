@@ -734,7 +734,7 @@ responses:
          - The model library or the specific version UUID provided is incorrect.
          - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
   Invalid_property:
-    type: "string"
+    # type: "string"
     description: |-
         Invalid Property: The specified property names are not valid.
 
