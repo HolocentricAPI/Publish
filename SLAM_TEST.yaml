@@ -162,10 +162,9 @@ paths:
                 type: string
             type: object
           examples:
-            application/json: OK
             application/xml: |
-              <token_type>Bearer</token_type>;
-              <access_token>mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS</access_token>;
+              <token_type>Bearer</token_type>
+              <access_token>mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS</access_token>
               <expires_in>28798</expires_in>
         500: 
           $ref: "#/responses/Server_error"
@@ -759,6 +758,9 @@ responses:
          - The API license key has not been uploaded to the server.
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
+     examples:
+      application/xml: |
+        <server_error>An internal server error occured</server_error>
   Unauthorized_IP_Mismatch:
     description:
       type: "string"
