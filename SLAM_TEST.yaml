@@ -758,7 +758,7 @@ responses:
          - The API license key has not been uploaded to the server.
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
-     examples:
+    examples:
       application/xml: |
         <server_error>An internal server error occured</server_error>
   Unauthorized_IP_Mismatch:
