@@ -117,7 +117,6 @@ parameters:
 paths: 
   server_url/api/token: 
     post: 
-     
       description: |-
           This API request is used to obtain an access token for authorization purposes. 
           Prior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.
@@ -147,14 +146,12 @@ paths:
           name: password
           required: true
           type: string
-          
       examples:
         application/xml:
           server_url: mp15.modelpedia.com
           grant_type: password
           username: username
           password: password
-          
       responses: 
         ? "200"
         : 
