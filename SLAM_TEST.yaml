@@ -147,6 +147,14 @@ paths:
           name: password
           required: true
           type: string
+          
+      examples:
+        application/xml:
+          server_url: mp15.modelpedia.com
+          grant_type: password
+          username: username
+          password: password
+          
       responses: 
         ? "200"
         : 
