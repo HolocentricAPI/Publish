@@ -166,6 +166,9 @@ paths:
                 example: Bearer
                 type: string
             type: object
+          examples:
+            application/json: OK
+            application/xml: <message> OK </message>
         500: 
           $ref: "#/responses/Server_error"
       summary: "Obtain access token"
