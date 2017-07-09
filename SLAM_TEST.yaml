@@ -163,7 +163,7 @@ paths:
             type: object
           examples:
             application/json: OK
-            application/xml: 
+            application/xml: |
               <token_type>Bearer</token_type>;
               <access_token>mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS</access_token>;
               <expires_in>28798</expires_in>
