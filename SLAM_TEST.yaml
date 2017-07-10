@@ -147,6 +147,7 @@ paths:
         200: 
           description: "OK"
           schema: 
+            application/xml:
             properties: 
               access_token: 
                 description: "Token to be used when making API requests."
@@ -158,7 +159,7 @@ paths:
                 type: integer
               token_type: 
                 description: "`Bearer`"
-                example: Bearer
+                example: <token_type>Bearer</token_type>
                 type: string
             type: object
           examples:
