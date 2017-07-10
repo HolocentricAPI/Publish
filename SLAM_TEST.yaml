@@ -162,11 +162,6 @@ paths:
                 example: <token_type>Bearer</token_type>
                 type: string
             type: object
-          examples:
-            application/xml: |
-              <token_type>Bearer</token_type>
-              <access_token>mUZrfE9MJySA1YTyGl9HsMjIypWNtl9jqjpfqxMKakdV00Fkh6C38gZkztrtCzWS</access_token>
-              <expires_in>28798</expires_in>
         500: 
           $ref: "#/responses/Server_error"
       summary: "Obtain access token"
