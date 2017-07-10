@@ -11,7 +11,7 @@ info:
     url: "https://media.licdn.com/media/p/7/005/0a3/2dd/144b17a.png"
   description: |
       # Overview
-      Holocentric Modelpedia now supports an XML-based API that is based on OData style interface and data structure. 
+      Holocentric Modelpedia now supports API that is based on OData style interface and data structure. 
       
       This API can be used by third party applications to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. 
       
@@ -318,6 +318,115 @@ paths:
                       type: "string"
                       example: "description"
                       description: "Element 3 of item type B."
+          examples:
+            application/xml: |
+              <?xml version="1.0"?>
+              <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                  <xs:annotation>
+                      <xs:documentation>version: {FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType name="Any">
+                      <xs:sequence>
+                          <xs:any minOccurs="0" maxOccurs="1" />
+                      </xs:sequence>
+                  </xs:complexType>
+                  <xs:complexType name="BusinessRule">
+                      <xs:sequence>
+                          <xs:choice maxOccurs="unbounded">
+                              <xs:element name="uuid" type="xs:string" />
+                              <xs:element name="title" type="xs:string" />
+                              <xs:element name="businessRule" type="xs:string" />
+                              <xs:element name="category" type="xs:string" />
+                              <xs:element name="dataQualityObjective" type="xs:string" />
+                              <xs:element name="dataQualityPrinciple" type="xs:string" />
+                              <xs:element name="description" type="xs:string" />
+                              <xs:element name="effectiveEndDate" type="xs:date" />
+                              <xs:element name="effectiveStartDate" type="xs:date" />
+                              <xs:element name="guideForUse" type="xs:string" />
+                              <xs:element name="name" type="xs:string" />
+                              <xs:element name="uid" type="xs:string" />
+                              <xs:element name="registrationStatus" type="CollectionOfRegistrationStatus" />
+                              <xs:element name="relatedDataReferences" type="CollectionOfMetadataItemRelatedDataReference" />
+                              <xs:element name="aliases">
+                                  <xs:complexType>
+                                      <xs:sequence>
+                                          <xs:element name="value" type="xs:string" />
+                                      </xs:sequence>
+                                  </xs:complexType>
+                              </xs:element>
+                              <xs:element name="alternateName">
+                                  <xs:complexType>
+                                      <xs:sequence>
+                                          <xs:element name="value" type="xs:string" />
+                                      </xs:sequence>
+                                  </xs:complexType>
+                              </xs:element>
+                              <xs:element name="steward" type="CollectionOfPositionInstance" />
+                              <xs:element name="custodian" type="CollectionOfPositionInstance" />
+                              <xs:element name="keyContact" type="CollectionOfPositionInstance" />
+                              <xs:element name="administrators" type="CollectionOfPositionInstance" />
+                              <xs:element name="dataSetSpecifications" type="CollectionOfDataSetSpecification" />
+                              <xs:element name="glossaryItems" type="CollectionOfGlossaryItemTerm" />
+                              <xs:element name="validations" type="CollectionOfValidation" />
+                          </xs:choice>
+                      </xs:sequence>
+                      <xs:attribute name="refUuid" type="xs:string" use="optional" />
+                  </xs:complexType>
+                  <xs:complexType name="GlossaryItemTerm">
+                      <xs:sequence>
+                          <xs:choice maxOccurs="unbounded">
+                              <xs:element name="uuid" type="xs:string" />
+                              <xs:element name="title" type="xs:string" />
+                              <xs:element name="caseStudy" type="xs:string" />
+                              <xs:element name="category" type="xs:string" />
+                              <xs:element name="collectionMethods" type="xs:string" />
+                              <xs:element name="comments" type="xs:string" />
+                              <xs:element name="context" type="xs:string" />
+                              <xs:element name="description" type="xs:string" />
+                              <xs:element name="effectiveEndDate" type="xs:date" />
+                              <xs:element name="effectiveStartDate" type="xs:date" />
+                              <xs:element name="guideForUse" type="xs:string" />
+                              <xs:element name="name" type="xs:string" />
+                              <xs:element name="origin" type="xs:string" />
+                              <xs:element name="periodicReviewByDate" type="xs:date" />
+                              <xs:element name="referenceDocuments" type="xs:string" />
+                              <xs:element name="submittingOrganisation" type="xs:string" />
+                              <xs:element name="uid" type="xs:string" />
+                              <xs:element name="registrationStatus" type="CollectionOfRegistrationStatus" />
+                              <xs:element name="relatedDataReferences" type="CollectionOfMetadataItemRelatedDataReference" />
+                              <xs:element name="aliases">
+                                  <xs:complexType>
+                                      <xs:sequence>
+                                          <xs:element name="value" type="xs:string" />
+                                      </xs:sequence>
+                                  </xs:complexType>
+                              </xs:element>
+                              <xs:element name="alternateName">
+                                  <xs:complexType>
+                                      <xs:sequence>
+                                          <xs:element name="value" type="xs:string" />
+                                      </xs:sequence>
+                                  </xs:complexType>
+                              </xs:element>
+                              <xs:element name="metadataItems" type="CollectionOfMetadataItem" />
+                              <xs:element name="administrators" type="CollectionOfPositionInstance" />
+                              <xs:element name="custodian" type="CollectionOfPositionInstance" />
+                              <xs:element name="steward" type="CollectionOfPositionInstance" />
+                              <xs:element name="keyContact" type="CollectionOfPositionInstance" />
+                              <xs:element name="glossaryItems" type="CollectionOfGlossaryItemTerm" />
+                          </xs:choice>
+                      </xs:sequence>
+                      <xs:attribute name="refUuid" type="xs:string" use="optional" />
+                  </xs:complexType>
+                  <xs:element name="items">
+                      <xs:complexType>
+                          <xs:choice maxOccurs="unbounded">
+                              <xs:element name="BusinessRule" type="BusinessRule" />
+                              <xs:element name="GlossaryItemTerm" type="GlossaryItemTerm" />
+                          </xs:choice>
+                      </xs:complexType>
+                  </xs:element>
+              </xs:schema>         
         400: 
           description: Invalid property or Unauthorized
           schema:
