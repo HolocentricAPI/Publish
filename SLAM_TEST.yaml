@@ -118,6 +118,7 @@ paths:
           This API request is used to obtain an access token for authorization purposes. 
           Prior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.
       operationId: obtain-access-token
+      consumes: application/xml
       produces: application/xml
       parameters: 
         - 
