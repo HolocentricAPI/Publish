@@ -812,9 +812,6 @@ responses:
       This error response is returned due to any one of the following reasons:
       - No access token provided in the header of the API request
       - The access token provided in the API request is incorrect.
-    properties: 
-      description:
-        example: "Information on how to transport items."
   Authorization_denied: 
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
@@ -840,9 +837,6 @@ responses:
       This error response is returned due to any one of the following reasons:
       - Invalid property name is entered with the `$select` parameter.
       - Invalid item type name is provided with the `$filter` parameter.
-    properties: 
-      description:
-        example: "Information on how to store items."
   Not_found: 
     description: |-
         Not found.
@@ -862,8 +856,6 @@ responses:
       application/xml: |
         <server_error>An internal server error occured</server_error>
   Unauthorized_IP_Mismatch:
-    description:
-      type: "string"
       description: |-
           Authorization has been denied for this request. User host address (IP) mismatch.
 
