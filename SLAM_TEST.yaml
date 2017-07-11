@@ -221,21 +221,29 @@ paths:
         400: 
           description: Invalid property or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+            properties:
+              Invalid Property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Unauthorized or Authorization denied
+          description: Authorization denied or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/Authorization_denied"
+            properties:
+              Auhorization denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid model or Requires initialization or Not found
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item details by specifying the item using library model UUID"
@@ -417,23 +425,25 @@ paths:
                   </xs:element>
               </xs:schema>         
         400: 
-          description: Invalid property or Unauthorized
-          schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+          $ref": "#/responses/Unauthorized"
         401: 
-          description: Unauthorized or Authorization denied
+          description: Authorization denied or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/Authorization_denied"
+            properties:
+              Auhorization denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid model or Requires initialization or Not found 
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item schema using library model UUID"
@@ -526,21 +536,29 @@ paths:
         400: 
           description: Invalid property or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+            properties:
+              Invalid Property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Unauthorized or Authorization denied
+          description: Authorization denied or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/Authorization_denied"
+            properties:
+              Auhorization Denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid model or Requires initialization or Not found
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "List items of a specified item type using library model UUID"
@@ -601,21 +619,29 @@ paths:
         400: 
           description: Invalid property or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+            properties:
+              Invalid property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Unauthorized or Authorization denied
+          description: Authorization denied or Unauthorized
           schema:
-            oneOf:
-            - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/Authorization_denied"
+            properties:
+              Auhorization denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid model or Requires initialization or Not found
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item details by specifying the item UUID"
@@ -682,23 +708,25 @@ paths:
                       example: "description"
                       description: "Element 3 of item type B."
         400: 
-          description: Invalid property or Unauthorized
-          schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_property"
-            - "$ref": "#/responses/Unauthorized"
+          $ref": "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
-            oneOf:
-            - "$ref": "#/responses/Unauthorized"
-            - "$ref": "#/responses/Authorization_denied"
+            properties:
+              Auhorization denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid model or Requires initialization
+          description: Invalid model or Requires initialization or Not found
           schema:
-            oneOf:
-            - "$ref": "#/responses/Invalid_model"
-            - "$ref": "#/responses/Requires_initialization"
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item schema using specific model version UUID"
@@ -775,30 +803,30 @@ paths:
                     example: "{192D6755-854C-47D0-5R8C-433D2636BCA7}"
                     description: "Element 1 of the second item."
         400: 
-          description: Invalid Property or Unauthorized
+          description: Invalid property or Unauthorized
           schema:
             properties:
-              Invalid Property:
+              Invalid property:
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
                 $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Authorization Denied or Unauthorized
+          description: Authorization denied or Unauthorized
           schema:
             properties:
-              Auhorization Denied:
+              Auhorization denied:
                 $ref: "#/responses/Authorization_denied"
               Unauthorized:
                 $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid Model or Requires Initialization or Not Found
+          description: Invalid model or Requires initialization or Not found
           schema:
             properties:
-              Invalid Model:
+              Invalid model:
                 $ref: "#/responses/Invalid_model"
-              Requires Initialization:
+              Requires initialization:
                 $ref: "#/responses/Requires_initialization"
-              Not Found:
+              Not found:
                 $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
