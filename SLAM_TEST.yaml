@@ -425,7 +425,7 @@ paths:
                   </xs:element>
               </xs:schema>         
         400: 
-          $ref": "#/responses/Unauthorized_IP_Mismatch"
+          $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Authorization denied or Unauthorized
           schema:
@@ -708,7 +708,7 @@ paths:
                       example: "description"
                       description: "Element 3 of item type B."
         400: 
-          $ref": "#/responses/Unauthorized_IP_Mismatch"
+          $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
