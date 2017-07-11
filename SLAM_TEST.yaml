@@ -781,23 +781,25 @@ paths:
               Invalid Property:
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
-                $ref: "#/responses/Unauthorized"
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
-          description: Invalid Property or Unauthorized
+          description: Authorization Denied or Unauthorized
           schema:
             properties:
-              Invalid Property:
-                $ref: "#/responses/Invalid_property"
+              Auhorization Denied:
+                $ref: "#/responses/Authorization_denied"
               Unauthorized:
                 $ref: "#/responses/Unauthorized"
         404: 
-          description: Invalid Property or Unauthorized
+          description: Invalid Model or Requires Initialization or Not Found
           schema:
             properties:
-              Invalid Property:
-                $ref: "#/responses/Invalid_property"
-              Unauthorized:
-                $ref: "#/responses/Unauthorized"
+              Invalid Model:
+                $ref: "#/responses/Invalid_model"
+              Requires Initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not Found:
+                $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
       summary: "List items of a specified item type"
