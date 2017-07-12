@@ -1,8 +1,6 @@
 swagger: "2.0"
-schemes:
-  - "https"
-produces:
-  - "application/xml"
+schemes: https
+produces: application/xml
 host: "/"
 info: 
   title: "Holocentric BMS3 API"
@@ -118,8 +116,6 @@ paths:
           This API request is used to obtain an access token for authorization purposes. 
           Prior to making any API requests, you need to obtain an access token that you can then use for all subsequent API requests.
       operationId: obtain-access-token
-      consumes: application/xml
-      produces: application/xml
       parameters: 
         - 
           description: "Modelpedia server URL."
@@ -488,8 +484,6 @@ paths:
           $ref: "#/parameters/Authorization"
         - 
           $ref: "#/parameters/content-type"
-      produces: 
-        - application/xml
       responses: 
         ? "200"
         : 
@@ -765,8 +759,6 @@ paths:
           $ref: "#/parameters/Authorization"
         - 
           $ref: "#/parameters/content-type"
-      produces: 
-        - application/xml
       responses: 
         200: 
           description: OK
