@@ -1,6 +1,8 @@
 swagger: "2.0"
-schemes: https
-produces: application/xml
+schemes: 
+  - https
+produces: 
+  - application/xml
 host: "/"
 info: 
   title: "Holocentric BMS3 API"
@@ -145,7 +147,7 @@ paths:
         200: 
           description: "OK"
           schema: 
-            type: string
+            type: object
           examples:
             application/xml: |
               <token_type>Bearer</token_type>
@@ -287,11 +289,9 @@ paths:
                   properties: 
                     element 1: 
                       type: "string"
-                      example: "uuid"
                       description: "Element 1 of item type A."
                     element 2: 
                       type: "string"
-                      example: "name"
                       description: "Element 2 of item type A."
               complexType B: 
                 type: "array"
@@ -301,15 +301,12 @@ paths:
                   properties: 
                     element 1: 
                       type: "string"
-                      example: "uuid"
                       description: "Element 1 of item type B."
                     element 2: 
                       type: "string"
-                      example: "title"
                       description: "Element 2 of item type B."
                     element 3: 
                       type: "string"
-                      example: "description"
                       description: "Element 3 of item type B."
           examples:
             application/xml: |
