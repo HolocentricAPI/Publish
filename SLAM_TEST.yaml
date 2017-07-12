@@ -196,26 +196,82 @@ paths:
         : 
           description: "OK"
           schema: 
-            type: "object"
-            properties: 
-              BusinessRule: 
-                type: "array"
-                description: "Name of the item type of the queried item."
-                items: 
-                  type: "object"
-                  properties: 
-                    description: 
-                      type: "string"
-                      example: "Details on how to store items."
-                      description: "Element 3 of the queried item"
-                    name: 
-                      type: "string"
-                      example: "Business Rule - Storage"
-                      description: "Element 2 of the queried item."
-                    uuid: 
-                      type: "string"
-                      example: "{192B6753-859C-41C0-7F5C-433C2636BCA7}"
-                      description: "Element 1 of the queried item."
+            type: object
+          examples:
+            application/xml: |
+              <?xml version="1.0" encoding="utf-8"?>
+              <items xsi:schemaLocation="https://uat-313.holocentric.com/api/{FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}/items/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <BusinessRule>
+                      <uuid>{192D6750-859C-41C0-9F5C-433C2636BCA7}</uuid>
+                      <title>Business Rule - Eft Kitschy</title>
+                      <uid>10000727</uid>
+                      <name>Business Rule - Eft Kitschy</name>
+                      <aliases>
+                          <value>Eft Kitschy</value>
+                      </aliases>
+                      <alternateName>
+                          <value>Lorem ipsum dolor sit amet</value>
+                          <value>consectetur adipiscing elit</value>
+                          <value>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</value>
+                      </alternateName>
+                      <description>Description for the item.</description>
+                      <effectiveStartDate>1997-09-22T14:00:00.0000000Z</effectiveStartDate>
+                      <businessRule>This is the business rule...</businessRule>
+                      <dataQualityObjective />
+                      <dataQualityPrinciple />
+                      <relatedDataReferences>
+                          <MetadataItemRelatedDataReference>
+                              <relationshipUuid>{83C8E7CF-1D4E-40CC-BCF3-205FF646B80A}</relationshipUuid>
+                              <otherEnd>
+                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
+                              </otherEnd>
+                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&amp;nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur &lt;/p&gt;</notes>
+                              <relationshipType>Synonym</relationshipType>
+                              <otherEndKey>
+                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
+                              </otherEndKey>
+                              <title>Synonym, Dangerous Fennec</title>
+                          </MetadataItemRelatedDataReference>
+                          <MetadataItemRelatedDataReference>
+                              <relationshipUuid>{551DCEBE-C9E6-43ED-B672-B5339399F426}</relationshipUuid>
+                              <otherEnd>
+                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
+                              </otherEnd>
+                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &lt;/p&gt;</notes>
+                              <relationshipType>Derived From</relationshipType>
+                              <otherEndKey>
+                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
+                              </otherEndKey>
+                              <title>Derived From, Mental Termite</title>
+                          </MetadataItemRelatedDataReference>
+                      </relatedDataReferences>
+                      <registrationStatus>
+                          <RegistrationStatus>
+                              <registrationAuthority>
+                                  <RegistrationAuthority refUuid="{0AB03B44-05DB-44FA-92E6-3F026644F094}" />
+                              </registrationAuthority>
+                              <registrationDate>2005-12-10T13:00:00.0000000Z</registrationDate>
+                              <registrationState>Standard</registrationState>
+                              <title>Walrus Xenophobic, Standard 11/12/2005</title>
+                          </RegistrationStatus>
+                      </registrationStatus>
+                      <steward>
+                          <PositionInstance refUuid="{7F5739ED-7982-4A08-AAA4-C84E9EFD0FB5}" />
+                      </steward>
+                      <custodian>
+                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
+                      </custodian>
+                      <administrators>
+                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
+                      </administrators>
+                      <validations>
+                          <Validation refUuid="{1AB7B09C-C050-4A44-9FC8-39ADFF0C8827}" />
+                      </validations>
+                      <dataSetSpecifications>
+                          <DataSetSpecification refUuid="{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}" />
+                      </dataSetSpecifications>
+                  </BusinessRule>
+              </items>
         400: 
           description: Invalid property or Unauthorized
           schema:
