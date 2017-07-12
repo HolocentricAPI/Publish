@@ -1066,10 +1066,10 @@ paths:
           description: OK
            schema: 
             type: object
-          examples:
+           examples:
             application/xml: |
              <?xml version="1.0" encoding="utf-8"?>
-            <items xsi:schemaLocation="https://www.modelpedia.com/api/{FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}/items/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+             <items xsi:schemaLocation="https://www.modelpedia.com/api/{FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}/items/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <BusinessRule>
                     <uuid>{192D6750-856C-42C0-9F5C-433C2636BCA7}</uuid>
                     <title>Business Rule - Eft Kitschy</title>
