@@ -148,8 +148,8 @@ paths:
       responses: 
         200: 
           description: "OK"
-          schema: 
-            type: string
+          # schema: 
+          #   type: string
           examples:
             application/xml: |
               <token_type>Bearer</token_type>
