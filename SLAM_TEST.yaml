@@ -444,8 +444,6 @@ paths:
                       </xs:complexType>
                   </xs:element>
               </xs:schema>         
-        400: 
-          $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Authorization denied or Unauthorized
           schema:
@@ -464,6 +462,8 @@ paths:
                 $ref: "#/responses/Requires_initialization"
               Not found:
                 $ref: "#/responses/Not_found"
+        400: 
+          $ref: "#/responses/Unauthorized_IP_Mismatch"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item schema using library model UUID"
@@ -1003,8 +1003,6 @@ paths:
                       </xs:complexType>
                   </xs:element>
               </xs:schema>
-        400: 
-          $ref: "#/responses/Unauthorized_IP_Mismatch"
         401: 
           description: Unauthorized or Authorization denied
           schema:
@@ -1023,6 +1021,8 @@ paths:
                 $ref: "#/responses/Requires_initialization"
               Not found:
                 $ref: "#/responses/Not_found"
+        400: 
+          $ref: "#/responses/Unauthorized_IP_Mismatch"
         500: 
           $ref: "#/responses/Server_error"
       summary: "Get item schema using specific model version UUID"
