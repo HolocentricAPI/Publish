@@ -149,7 +149,7 @@ paths:
         200: 
           description: "OK"
           # schema: 
-          #   type: string
+          type: string
           examples:
             application/xml: |
               <token_type>Bearer</token_type>
