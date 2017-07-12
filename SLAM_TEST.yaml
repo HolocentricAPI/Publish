@@ -148,8 +148,8 @@ paths:
       responses: 
         200: 
           description: "OK"
-          # schema: 
-          type: string
+          schema: 
+            type: string
           examples:
             application/xml: |
               <token_type>Bearer</token_type>
@@ -880,9 +880,9 @@ responses:
          - The API license key has not been uploaded to the server.
          - The API server license key has expired.
          - SSL certificate has not been installed on the server.
-    examples:
-      application/xml: |
-        <server_error>An internal server error occured</server_error>
+    #examples:
+    #  application/xml: |
+    #    <server_error>An internal server error occured</server_error>
   Unauthorized_IP_Mismatch:
       description: |-
           Authorization has been denied for this request. User host address (IP) mismatch.
