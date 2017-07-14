@@ -148,6 +148,10 @@ paths:
           description: "OK"
           schema: 
             type: object
+            properties:
+              access_token:
+                type: string
+                example: vvvvvv
           examples:
             application/xml: |
               <token_type>Bearer</token_type>
