@@ -588,7 +588,7 @@ paths:
       summary: "List items of a specified item type using library model UUID"
       tags: ["Items"]
       
-   server_url/api/{model_choice}/{model_uuid}/items(item_uuid): 
+  server_url/api/{model_choice}/{model_uuid}/items(item_uuid): 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the API method to list items of a specified item type."
       operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
