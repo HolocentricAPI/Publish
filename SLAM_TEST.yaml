@@ -730,7 +730,7 @@ paths:
                 $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
-      summary: "Get item details by specifying the item using library model UUID"
+      summary: "Get item details by specifying the item UUID using library model UUID"
       tags: ["Items"]
       
   server_url/api/{model_uuid}/items/schema: 
@@ -1282,7 +1282,7 @@ paths:
                 $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
-      summary: "Get item details by specifying the item UUID"
+      summary: "Get item details by specifying the item UUID for a specific model version UUID"
       tags: ["Items"]    
 responses: 
   Unauthorized: 
