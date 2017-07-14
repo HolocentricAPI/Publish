@@ -591,7 +591,7 @@ paths:
   server_url/api/{model_choice}/{model_uuid}/items(item_uuid): 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the API method to list items of a specified item type."
-      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
+      operationId: get-item-details-by-specifying-the-item-uuid-using-the-library-model-uuid
       parameters: 
         - 
           description: "Modelpedia server URL."
@@ -899,7 +899,7 @@ paths:
       description: |-
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the `$filter` paramater and the `isOf` option. 
           e.g., `filter=isof('Business Rule')` will list out all items that are listed under item type `Business Rule`.
-      operationId: list-items-of-a-specified-type
+      operationId: list-items-of-a-specified-item-type-using-specific-model-version-uuid
       parameters: 
         - 
           description: "Modelpedia server URL."
@@ -1149,7 +1149,7 @@ paths:
   server_url/api/{model_uuid}/items(item_uuid): 
     get: 
       description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the API method to list items of a specific item type."
-      operationId: list-item-of-a-specified-uuid
+      operationId: get-item-details-by-specifying-the-item-uuid-for-a-specific-model-version-uuid
       parameters: 
         - 
           description: "Modelpedia server URL."
