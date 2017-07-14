@@ -1143,7 +1143,7 @@ paths:
                 $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
-      summary: "List items of a specified item type"
+      summary: "List items of a specified item type using a specific model version UUID"
       tags: ["Items"]
       
   server_url/api/{model_uuid}/items(item_uuid): 
