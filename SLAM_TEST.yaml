@@ -63,7 +63,7 @@ tags:
   - name: "Items"
     x-displayName: "Items" 
     description: | 
-        This API request is used to retreive the items and associated relationships of a specified item type in the queried library. The response received will vary based on the model configuration done in Holocentric Modeler."
+        This API request is used to retreive the items and associated relationships of a specified item type in the queried library. The response received will vary based on the model configuration done in Holocentric Modeler.
     
 parameters: 
   $count: 
@@ -74,13 +74,13 @@ parameters:
     required: false
     type: boolean
   $select: 
-    description: "This parameter can be used to rereive specific properties of an item type."
+    description: "This parameter can be used to retreive specific properties of an item type."
     in: query
     name: $select
     required: false
     type: string
   $skip: 
-    description: "This is a paging option to skip the specified number of items in the list. e.g. $skip=50 will skip the first 50 items in the list and return results from the 51st item onwards."
+    description: "This is a paging option to skip the specified number of items in the list. e.g.`$skip=50` will skip the first 50 items in the list and return results from the 51st item onwards."
     in: query
     name: $skip
     required: false
@@ -88,7 +88,7 @@ parameters:
   $top: 
     description: |-
         This is a paging option to return the specified number of items from the top of the list. 
-        e.g. $top=50 will return the first 50 items in the list.
+        e.g. `$top=50` will return the first 50 items in the list.
     in: query
     name: $top
     required: false
@@ -126,7 +126,7 @@ paths:
           required: true
           type: string
         - 
-          description: "Use the value `password` since you will be obtaining an access token using the your password credentials."
+          description: "Use the value `password` since you will be obtaining an access token using your password credentials."
           in: query
           name: grant_type
           required: true
@@ -162,151 +162,6 @@ paths:
           $ref: "#/responses/Server_error"
       summary: "Obtain access token"
       tags: ["Authentication"]
-      
-  server_url/api/{model_choice}/{model_uuid}/items(item_uuid): 
-    get: 
-      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the list items API method."
-      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
-      parameters: 
-        - 
-          description: "Modelpedia server URL."
-          in: path
-          name: server_url
-          required: true
-          type: string
-        - 
-          description: "Specifies if you want to retreive the draft, proposed or final version of the library. You can use any one of the values `LatestDraft`, `LatestProposed` or `LatestFinal`."
-          in: path
-          name: model_choice
-          required: true
-          type: string
-        - 
-          description: "The UUID of the specific version of the model library."
-          in: path
-          name: model_uuid
-          required: true
-          type: string
-        - 
-          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
-          in: query
-          name: item_uuid
-          required: true
-          type: string
-        - 
-          $ref: "#/parameters/Authorization"
-        - 
-          $ref: "#/parameters/content-type"
-      responses: 
-        ? "200"
-        : 
-          description: "OK"
-          schema: 
-            type: object
-          examples:
-            application/xml: |
-              <?xml version="1.0" encoding="utf-8"?>
-              <items xsi:schemaLocation="https://uat-313.holocentric.com/api/{FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}/items/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <BusinessRule>
-                      <uuid>{192D6750-859C-41C0-9F5C-433C2636BCA7}</uuid>
-                      <title>Business Rule - Eft Kitschy</title>
-                      <uid>10000727</uid>
-                      <name>Business Rule - Eft Kitschy</name>
-                      <aliases>
-                          <value>Eft Kitschy</value>
-                      </aliases>
-                      <alternateName>
-                          <value>Lorem ipsum dolor sit amet</value>
-                          <value>consectetur adipiscing elit</value>
-                          <value>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</value>
-                      </alternateName>
-                      <description>Description for the item.</description>
-                      <effectiveStartDate>1997-09-22T14:00:00.0000000Z</effectiveStartDate>
-                      <businessRule>This is the business rule...</businessRule>
-                      <dataQualityObjective />
-                      <dataQualityPrinciple />
-                      <relatedDataReferences>
-                          <MetadataItemRelatedDataReference>
-                              <relationshipUuid>{83C8E7CF-1D4E-40CC-BCF3-205FF646B80A}</relationshipUuid>
-                              <otherEnd>
-                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
-                              </otherEnd>
-                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&amp;nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur &lt;/p&gt;</notes>
-                              <relationshipType>Synonym</relationshipType>
-                              <otherEndKey>
-                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
-                              </otherEndKey>
-                              <title>Synonym, Dangerous Fennec</title>
-                          </MetadataItemRelatedDataReference>
-                          <MetadataItemRelatedDataReference>
-                              <relationshipUuid>{551DCEBE-C9E6-43ED-B672-B5339399F426}</relationshipUuid>
-                              <otherEnd>
-                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
-                              </otherEnd>
-                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &lt;/p&gt;</notes>
-                              <relationshipType>Derived From</relationshipType>
-                              <otherEndKey>
-                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
-                              </otherEndKey>
-                              <title>Derived From, Mental Termite</title>
-                          </MetadataItemRelatedDataReference>
-                      </relatedDataReferences>
-                      <registrationStatus>
-                          <RegistrationStatus>
-                              <registrationAuthority>
-                                  <RegistrationAuthority refUuid="{0AB03B44-05DB-44FA-92E6-3F026644F094}" />
-                              </registrationAuthority>
-                              <registrationDate>2005-12-10T13:00:00.0000000Z</registrationDate>
-                              <registrationState>Standard</registrationState>
-                              <title>Walrus Xenophobic, Standard 11/12/2005</title>
-                          </RegistrationStatus>
-                      </registrationStatus>
-                      <steward>
-                          <PositionInstance refUuid="{7F5739ED-7982-4A08-AAA4-C84E9EFD0FB5}" />
-                      </steward>
-                      <custodian>
-                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
-                      </custodian>
-                      <administrators>
-                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
-                      </administrators>
-                      <validations>
-                          <Validation refUuid="{1AB7B09C-C050-4A44-9FC8-39ADFF0C8827}" />
-                      </validations>
-                      <dataSetSpecifications>
-                          <DataSetSpecification refUuid="{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}" />
-                      </dataSetSpecifications>
-                  </BusinessRule>
-              </items>
-        400: 
-          description: Invalid property or Unauthorized
-          schema:
-            properties:
-              Invalid Property:
-                $ref: "#/responses/Invalid_property"
-              Unauthorized:
-                $ref: "#/responses/Unauthorized_IP_Mismatch"
-        401: 
-          description: Authorization denied or Unauthorized
-          schema:
-            properties:
-              Auhorization denied:
-                $ref: "#/responses/Authorization_denied"
-              Unauthorized:
-                $ref: "#/responses/Unauthorized"
-        404: 
-          description: Invalid model or Requires initialization or Not found
-          schema:
-            properties:
-              Invalid model:
-                $ref: "#/responses/Invalid_model"
-              Requires initialization:
-                $ref: "#/responses/Requires_initialization"
-              Not found:
-                $ref: "#/responses/Not_found"
-        500: 
-          $ref: "#/responses/Server_error"
-      summary: "Get item details by specifying the item using library model UUID"
-      tags: ["Items"]
       
   server_url/api/{model_choice}/{model_uuid}/items/schema: 
     get: 
@@ -477,7 +332,7 @@ paths:
   server_url/api/{model_choice}/{model_uuid}/items?$filter=isof('item_type'): 
     get: 
       description: |-
-          This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the `isOf` option. 
+          This API request will retreive all items relating to the specified item type. The item type can be filtered out using the `$filter` paramater and the `isOf` option. 
           e.g., `filter=isof('Business Rule')` will list out all items that are listed under item type `Business Rule`.
       operationId: list-items-of-a-specified-item-type-using-library-model-uuid
       parameters: 
@@ -494,7 +349,7 @@ paths:
           required: true
           type: string
         - 
-          description: "The UUID of the specific version of the model library."
+          description: "The UUID of the published model library."
           in: path
           name: model_uuid
           required: true
@@ -733,10 +588,10 @@ paths:
       summary: "List items of a specified item type using library model UUID"
       tags: ["Items"]
       
-  server_url/api/{model_uuid}/items(item_uuid): 
+   server_url/api/{model_choice}/{model_uuid}/items(item_uuid): 
     get: 
-      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the [list items](speca://get-item-schema_status) API method."
-      operationId: list-item-of-a-specified-uuid
+      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the API method to list items of a specified item type."
+      operationId: get-item-details-by-specifying-the-item-uuid-and-specific-model-version
       parameters: 
         - 
           description: "Modelpedia server URL."
@@ -745,13 +600,19 @@ paths:
           required: true
           type: string
         - 
-          description: "The UUID of the specific version of the model library."
+          description: "Specifies if you want to retreive the draft, proposed or final version of the library. You can use any one of the values `LatestDraft`, `LatestProposed` or `LatestFinal`."
+          in: path
+          name: model_choice
+          required: true
+          type: string
+        - 
+          description: "The UUID of the published model library."
           in: path
           name: model_uuid
           required: true
           type: string
         - 
-          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
+          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to separate the UUIDs."
           in: query
           name: item_uuid
           required: true
@@ -845,7 +706,7 @@ paths:
           description: Invalid property or Unauthorized
           schema:
             properties:
-              Invalid property:
+              Invalid Property:
                 $ref: "#/responses/Invalid_property"
               Unauthorized:
                 $ref: "#/responses/Unauthorized_IP_Mismatch"
@@ -869,7 +730,7 @@ paths:
                 $ref: "#/responses/Not_found"
         500: 
           $ref: "#/responses/Server_error"
-      summary: "Get item details by specifying the item UUID"
+      summary: "Get item details by specifying the item using library model UUID"
       tags: ["Items"]
       
   server_url/api/{model_uuid}/items/schema: 
@@ -1036,7 +897,7 @@ paths:
   server_url/api/{model_uuid}/items?$filter=isof('item_type'): 
     get: 
       description: |-
-          This API request will retreive all items relating to the specified item type. The item type can be filtered out using the $filter paramater and the `isOf` option. 
+          This API request will retreive all items relating to the specified item type. The item type can be filtered out using the `$filter` paramater and the `isOf` option. 
           e.g., `filter=isof('Business Rule')` will list out all items that are listed under item type `Business Rule`.
       operationId: list-items-of-a-specified-type
       parameters: 
@@ -1284,6 +1145,145 @@ paths:
           $ref: "#/responses/Server_error"
       summary: "List items of a specified item type"
       tags: ["Items"]
+      
+  server_url/api/{model_uuid}/items(item_uuid): 
+    get: 
+      description: "This API request will retreive item details relating to the specified item UUID. The item UUIDs of an item type can be obtained from the response returned when you invoke the API method to list items of a specific item type."
+      operationId: list-item-of-a-specified-uuid
+      parameters: 
+        - 
+          description: "Modelpedia server URL."
+          in: path
+          name: server_url
+          required: true
+          type: string
+        - 
+          description: "The UUID of the specific version of the model library."
+          in: path
+          name: model_uuid
+          required: true
+          type: string
+        - 
+          description: "The UUID/s of the item/s that you want to retreive. When retreiving more than one item, use a comma to sepaerate the UUIDs."
+          in: query
+          name: item_uuid
+          required: true
+          type: string
+        - 
+          $ref: "#/parameters/Authorization"
+        - 
+          $ref: "#/parameters/content-type"
+      responses: 
+        ? "200"
+        : 
+          description: "OK"
+          schema: 
+            type: object
+          examples:
+            application/xml: |
+              <?xml version="1.0" encoding="utf-8"?>
+              <items xsi:schemaLocation="https://uat-313.holocentric.com/api/{FA404B82-C6AF-4AD2-B029-9FFEFBB959FD}/items/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <BusinessRule>
+                      <uuid>{192D6750-859C-41C0-9F5C-433C2636BCA7}</uuid>
+                      <title>Business Rule - Eft Kitschy</title>
+                      <uid>10000727</uid>
+                      <name>Business Rule - Eft Kitschy</name>
+                      <aliases>
+                          <value>Eft Kitschy</value>
+                      </aliases>
+                      <alternateName>
+                          <value>Lorem ipsum dolor sit amet</value>
+                          <value>consectetur adipiscing elit</value>
+                          <value>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</value>
+                      </alternateName>
+                      <description>Description for the item.</description>
+                      <effectiveStartDate>1997-09-22T14:00:00.0000000Z</effectiveStartDate>
+                      <businessRule>This is the business rule...</businessRule>
+                      <dataQualityObjective />
+                      <dataQualityPrinciple />
+                      <relatedDataReferences>
+                          <MetadataItemRelatedDataReference>
+                              <relationshipUuid>{83C8E7CF-1D4E-40CC-BCF3-205FF646B80A}</relationshipUuid>
+                              <otherEnd>
+                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
+                              </otherEnd>
+                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat&amp;nbsp; Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur &lt;/p&gt;</notes>
+                              <relationshipType>Synonym</relationshipType>
+                              <otherEndKey>
+                                  <ValueDomain refUuid="{615B18EC-3A4F-4CB3-826A-D86B7F59926A}" />
+                              </otherEndKey>
+                              <title>Synonym, Dangerous Fennec</title>
+                          </MetadataItemRelatedDataReference>
+                          <MetadataItemRelatedDataReference>
+                              <relationshipUuid>{551DCEBE-C9E6-43ED-B672-B5339399F426}</relationshipUuid>
+                              <otherEnd>
+                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
+                              </otherEnd>
+                              <notes>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&amp;nbsp; Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat &lt;/p&gt;</notes>
+                              <relationshipType>Derived From</relationshipType>
+                              <otherEndKey>
+                                  <FrameworkDimension refUuid="{3F539697-6CD5-47F8-B814-C8BF591F672C}" />
+                              </otherEndKey>
+                              <title>Derived From, Mental Termite</title>
+                          </MetadataItemRelatedDataReference>
+                      </relatedDataReferences>
+                      <registrationStatus>
+                          <RegistrationStatus>
+                              <registrationAuthority>
+                                  <RegistrationAuthority refUuid="{0AB03B44-05DB-44FA-92E6-3F026644F094}" />
+                              </registrationAuthority>
+                              <registrationDate>2005-12-10T13:00:00.0000000Z</registrationDate>
+                              <registrationState>Standard</registrationState>
+                              <title>Walrus Xenophobic, Standard 11/12/2005</title>
+                          </RegistrationStatus>
+                      </registrationStatus>
+                      <steward>
+                          <PositionInstance refUuid="{7F5739ED-7982-4A08-AAA4-C84E9EFD0FB5}" />
+                      </steward>
+                      <custodian>
+                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
+                      </custodian>
+                      <administrators>
+                          <PositionInstance refUuid="{31375D4B-DCD5-47DD-8E39-FC06EF406954}" />
+                      </administrators>
+                      <validations>
+                          <Validation refUuid="{1AB7B09C-C050-4A44-9FC8-39ADFF0C8827}" />
+                      </validations>
+                      <dataSetSpecifications>
+                          <DataSetSpecification refUuid="{B0AE5E7A-384B-4A8F-874F-39425FB1CC1F}" />
+                      </dataSetSpecifications>
+                  </BusinessRule>
+              </items>
+        400: 
+          description: Invalid property or Unauthorized
+          schema:
+            properties:
+              Invalid property:
+                $ref: "#/responses/Invalid_property"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized_IP_Mismatch"
+        401: 
+          description: Authorization denied or Unauthorized
+          schema:
+            properties:
+              Auhorization denied:
+                $ref: "#/responses/Authorization_denied"
+              Unauthorized:
+                $ref: "#/responses/Unauthorized"
+        404: 
+          description: Invalid model or Requires initialization or Not found
+          schema:
+            properties:
+              Invalid model:
+                $ref: "#/responses/Invalid_model"
+              Requires initialization:
+                $ref: "#/responses/Requires_initialization"
+              Not found:
+                $ref: "#/responses/Not_found"
+        500: 
+          $ref: "#/responses/Server_error"
+      summary: "Get item details by specifying the item UUID"
+      tags: ["Items"]    
 responses: 
   Unauthorized: 
     description: |-
@@ -1296,8 +1296,8 @@ responses:
     description: |-
         Authorization has been denied for this request. This error response is returned be due to any one of the following reasons:
         
-         - Either the 'Repository Administrator' role or the 'API Client (Full Read)' role has not been assigned to the user invoking the API. The access token has expired (i.e. 8 hours have exceeded since the token was generated.)
-         - The role 'API Client (Full Read)' has been revoked from the user and the 5 minutes cache time period for the access token has also expired.
+         - Either the `Repository Administrator` role or the `API Client (Full Read)` role has not been assigned to the user invoking the API. The access token has expired (i.e. 8 hours have exceeded since the token was generated.)
+         - The role `API Client (Full Read)` has been revoked from the user and the 5 minutes cache time period for the access token has also expired.
          - User is attempting to access a library that he/she does not have access.
          - Access token was generated for one server and now being used for accessing a model library on another server.
   Invalid_model: 
@@ -1309,7 +1309,7 @@ responses:
          - The model library is not published.
          - Model choice is not provided along with the model library UUID when invoking an API request for a published model.
          - The model library or the specific version UUID provided is incorrect.
-         - The library being queried has been publishes with RMU (Revision Mark Up) enabled.
+         - The library being queried has been published with RMU (Revision Mark-Up) enabled.
   Invalid_property:
     description: |-
       The specified property names are not valid.
@@ -1323,7 +1323,7 @@ responses:
         
         This error response is returned when you make an API request to retreive the schema or items of a published library but you have a typo in your API URL.
   Requires_initialization: 
-    description: "The requested model requires initialization.This error response is returned when you attempt to make an API on a published model that is not initialized or is currently being initialized."
+    description: "The requested model requires initialization.This error response is returned when you attempt to make an API request on a published model that is not initialized or is currently being initialized."
   Server_error: 
     description: |-
         Server Error: An internal server error occured. 
