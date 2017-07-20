@@ -22,7 +22,7 @@ info:
       
       - The API license key needs to be uploaded to the server.
       - The SSL certificate needs to be installed for the API.
-      - The user making the API requests needs to be assigned the System Authority Role `Repository Administrator` and the role `API Client (Full Read)`.
+      - The user making the API requests needs to be assigned the role `API Client (Full Read)`.
       
       # Licensing
       
