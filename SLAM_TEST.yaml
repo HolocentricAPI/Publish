@@ -11,7 +11,7 @@ info:
     url: "https://media.licdn.com/media/p/7/005/0a3/2dd/144b17a.png"
   description: |
       # Overview
-      Holocentric Modelpedia1 now supports API that is based on OData style interface and data structure. 
+      Holocentric Modelpedia now supports API that is based on OData style interface and data structure. 
       
       This API can be used by third party applications to retreive data from Modelpedia. The API supports a single RESTful service that can return the schema of a queried library. Additionally you can also retreive related items and relationships for a queried item type. 
       
