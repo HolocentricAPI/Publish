@@ -8,7 +8,7 @@ info:
   title: "Holocentric BMS3 API"
   version: 3.1.3
   x-logo: 
-    url: "https://holopoint.holocentric.com/Docs/Marketing/Graphics/Holocentric%20Company%20Logo/HolocentricLogo_200x50.png"
+    url: "https://holopoint.holocentric.com/Docs/Marketing/Graphics/Holocentric%20Company%20Logo/HolocentricLogo_140x30.png"
   description: |
       # Overview
       Holocentric Modelpedia now supports API that is based on OData style interface and data structure. 
