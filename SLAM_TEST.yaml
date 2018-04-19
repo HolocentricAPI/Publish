@@ -335,7 +335,7 @@ paths:
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the `$filter` paramater and the `isOf` option. 
           e.g., `filter=isof('Business Rule')` will list out all items that are listed under item type `Business Rule`.
           
-          **Note: When performing an API query for an item type, if the total file size of the items that are returned exceeds 10MB, then you will receive a blank screen for an extended period of time. If this occurs, it is recommended that you query the specific item individually by specifying the individual item UUID.**
+          **Note: When performing an API query for an item type, if the total file size of the items that are returned exceeds 10MB, then you will receive a blank screen for an extended period. If this occurs, it is recommended that you query the specific item individually by specifying the individual item UUID.**
       operationId: list-items-of-a-specified-item-type-using-library-model-uuid
       parameters: 
         - 
@@ -902,7 +902,7 @@ paths:
           This API request will retreive all items relating to the specified item type. The item type can be filtered out using the `$filter` paramater and the `isOf` option. 
           e.g., `filter=isof('Business Rule')` will list out all items that are listed under item type `Business Rule`.
           
-          **Note: When performing an API query for an item type, if the total file size of the items that are returned exceeds 10MB, then you will receive a blank screen for an extended period of time. If this occurs, it is recommended that you query the specific item individually by specifying the individual item UUID.**
+          **Note: When performing an API query for an item type, if the total file size of the items that are returned exceeds 10MB, then you will receive a blank screen for an extended period. If this occurs, it is recommended that you query the specific item individually by specifying the individual item UUID.**
       operationId: list-items-of-a-specified-item-type-using-specific-model-version-uuid
       parameters: 
         - 
